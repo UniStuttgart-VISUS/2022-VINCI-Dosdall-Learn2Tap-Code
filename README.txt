@@ -2,7 +2,9 @@
 	(MySQL server must be installed on local computer.
 		https://www.simplilearn.com/tutorials/mysql-tutorial/mysql-workbench-installation)
 
-2. folder server --> File Index --> adjust database access 
+2. Execute the files from the database server to create the database.	
+
+3. folder server --> File Index --> adjust database access 
 
 const dbUser = mysql.createConnection({
     user:'HERE_YOUR_USERNAME',
@@ -12,16 +14,16 @@ const dbUser = mysql.createConnection({
 
 });
 
-3. enter the following commands in the server folder:
+4. enter the following commands in the server folder:
 
 	- npm install
 	- npm start
 
-4. in the folder Client enter the following commands:
+5. in the folder Client enter the following commands:
 	- npm install
 	- npm start
 
-5. open internet browser -->(http://localhost:3000/Learn2Tap)
+6. open internet browser -->(http://localhost:3000/Learn2Tap)
 
-6.To use the application to its full extent, download the TapStrap mapping 'Lern2Tap-Mapping'.
+7.To use the application to its full extent, download the TapStrap mapping 'Lern2Tap-Mapping'.
 
