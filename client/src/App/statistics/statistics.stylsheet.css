@@ -1,0 +1,72 @@
+#returnMenuDivStat{
+    background-color: rgb(206, 197, 197);
+    height: 100vh;
+    width: 100vw;
+    overflow-x:hidden; 
+    overflow-y: scroll; 
+  }
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+
+    
+}
+
+#sel1Stat{
+  
+    margin: 20px;
+    display: inline-block;
+}
+#rightStat{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width:100%;
+    background-color: antiquewhite;
+    align-items: center;
+}
+.showStatistic{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width:100%;
+    background-color: antiquewhite;
+    align-items: center;
+
+}
+
+@media (max-width :800px) {
+    #container{
+        width: 1000px;
+    }
+    #rightStat{
+
+        width: 1000px;
+
+    }
+
+       .showStatistic{
+           width: 1000px;
+    
+       
+       
+    
+
+
+       }
+       #returnMenuDivStat{
+           width: 1000px;
+           display: inline;
+        float: left;
+        overflow-x:auto; 
+        overflow-y: auto; 
+       }
+
+
+
+}

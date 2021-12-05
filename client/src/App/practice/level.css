@@ -1,0 +1,150 @@
+.mainDiv, .returnDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+
+h2{
+    margin-top: 5px;
+    align-items: center;
+    text-align: center;
+    justify-content:center;
+}
+
+
+h4{
+    text-align: center;
+}
+
+#dialogButtonLevel{
+     
+    width: 250px;
+    height: 55px;
+    margin-top:10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+   
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #fefefe;
+    text-align: center;
+   
+  
+   
+   
+    cursor: pointer;
+    font-size: 16px;
+    background-color:  rgb(137, 150, 151); ;
+   
+
+}
+
+.menuBackButton{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    margin: auto;
+    margin-bottom: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+.showLetterTutoriel{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width:500px;
+    height: 400px;
+    background-color: antiquewhite;
+
+}
+.letterTutoriel{
+    font-size: 100px;
+}
+.bar{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width:500px;
+    height: 100px;
+    background-color:antiquewhite;
+    
+}
+#last{
+    text-align: center;
+}
+.reward{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width:500px;
+    height: 150px;
+    background-color: antiquewhite;
+    
+}
+.countdown{
+    font-size: 100px;
+}
+.statisticLetter{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 500px;
+    height: 200px;
+    align-items: center;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+@media (max-width : 500px) {
+
+    .bar{
+        
+        width:400px;
+      
+        
+    }
+    .showLetterTutoriel{
+      
+        width:400px;
+        
+    
+    }
+    .reward{
+      
+        width:400px;
+        
+        
+    }
+
+}
+@media (max-width : 400px) {
+
+    .bar{
+        font-size: 22px;
+        width:300px;
+      
+        
+    }
+    .showLetterTutoriel{
+      
+        width:300px;
+        
+    
+    }
+    .reward{
+      
+        width:300px;
+        
+        
+    }
+
+}
