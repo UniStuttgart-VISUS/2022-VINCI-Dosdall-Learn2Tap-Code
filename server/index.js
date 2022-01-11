@@ -8,6 +8,8 @@ app.use(express.json());
 
 
 /** --------------- simple Functions-------------------------------------------------------------------------------- */
+
+//Help function to format array
 function createArray(arrayCurr){
   
     var resultsArr = []
@@ -21,15 +23,10 @@ function createArray(arrayCurr){
         currVal = currVal + arrayCurr[i];
       }
     } }
-    
-    
-    return(resultsArr);
-
-
-
+   return(resultsArr);
  }
 
-
+//Database connection --> Here adjust the data to own database
 const dbUser = mysql.createConnection({
     host:'localhost',
     user:'root',                   //'tap_user',
@@ -39,10 +36,10 @@ const dbUser = mysql.createConnection({
 });
 /**----------------------------------Overview------------------------------------------------------------------------ */
 
+//GET - Glossary
 app.get('/getGlossary/:currHand', (req, res)=>{
     
     const hand = req.params.currHand;
-
     var registerdID = 0;
     dbUser.query("SELECT id, righthand, lefthand, single, doubletap, triple, switch, shift FROM levels ",  (err, result) => {
 
@@ -54,54 +51,16 @@ app.get('/getGlossary/:currHand', (req, res)=>{
             res.send([resultJson]);
         }
     })
-       
-
-    
-
-    
+     
 });
-/**--------------------------------Statistic------------------------------------------------------------------------------------- */
 
 
 /** -------------------------------- User Administration ----------------------------------------------------------------- */
-function  setUserIfNotExist(setName, setHand){
-    var registerdID = 0;
-   
-    dbUser.query("SELECT * FROM user WHERE name = ?", setName, (err, result) => {
-        if(err){
-            console.log(err)
-        }else{
-           if(result[0]== undefined){
-               
-                dbUser.query(
-                    'INSERT INTO user (name, hand) VALUES(?,?)',
-                    [setName, setHand],
-                    (err, result)=>{
-                        if(err){
-                            console.log(err);
-            
-                        }else{
-                         
-                            registerdID = result.insertId;
-                        }
-                    }
-                )
-           
-           
-            }else{
-                console.log("User exist");
-           };
-        }
-    })
- return registerdID;
-
-}
-
+//Create a new user if the name  doesn't alread exist
 app.get('/createUser/:name/:hand', (req, res)=>{
   
     const name = req.params.name;
     const hand = req.params.hand;
-    console.log('HAND', hand);
     var registerdID = 0;
     dbUser.query("SELECT * FROM user WHERE name = ?", name, (err, result) => {
         if(err){
@@ -296,12 +255,10 @@ app.get('/createUser/:name/:hand', (req, res)=>{
            };
         }
     })
-
-    
-
     
 });
 
+// forwards user Tracking infromation to Database
 app.post('/userTracking',(req,res) =>{
     const id = req.body.id;
     const event = req.body.event ;
@@ -313,7 +270,7 @@ app.post('/userTracking',(req,res) =>{
         if(err){
             console.log(err);
         }else{
-            console.log('Succes Insert User Tracking');
+            
             res.send(['Done User Tracking']);
         }
 
@@ -321,6 +278,8 @@ app.post('/userTracking',(req,res) =>{
 
 });
 
+
+//GET all possible users
 app.get('/Users/:initialize', (req, res) => {
     
     dbUser.query("SELECT * FROM user", (err, result) => {
@@ -333,13 +292,12 @@ app.get('/Users/:initialize', (req, res) => {
     })
 
 })
+
+// GET a specific user 
 app.get('/specificUser/:name', (req, res) => {
     
     const name = req.params.name;
-    
- 
-    
-    dbUser.query("SELECT * FROM user WHERE name = ? ", name ,(err, result) => {
+     dbUser.query("SELECT * FROM user WHERE name = ? ", name ,(err, result) => {
         if(err){
             console.log(err);
            
@@ -351,6 +309,7 @@ app.get('/specificUser/:name', (req, res) => {
 
 })
 
+//GET username by id
 app.get('/getSpecificUserName/:currCookieID', (req, res) => {
     
     const userID = req.params.currCookieID;
@@ -371,6 +330,8 @@ app.get('/getSpecificUserName/:currCookieID', (req, res) => {
 
 
 /**---------------------------Single Tap------------------------------------------------------------------------------------------- */
+
+//GET - Single Tap Menu
 app.get('/getSingleTabMenu', (req, res)=>{
 
 
@@ -387,24 +348,19 @@ app.get('/getSingleTabMenu', (req, res)=>{
 
                 moduArr.push(resultJson[i].nameModus);
                 levelsArr.push(resultJson[i].singletap);
-               
-               
+             
             }
             
             res.send([moduArr,levelsArr]);
         }
 
-        
-    
-
-
-
     } )
 
 });
 
+//GET - Single Tap Stars for Single Tap menu view
 app.get('/getSingleTabStar/:userID', (req, res)=>{
-    
+
     const id  = req.params.userID;
     
   dbUser.query('SELECT * FROM singletabstars WHERE id=?', id, (err, result) =>{
@@ -420,8 +376,7 @@ app.get('/getSingleTabStar/:userID', (req, res)=>{
                  
                     if(key != "id"){
                     starsTotal = starsTotal + resultJson[key];
-                    
-                    
+                   
                     }
                     if(key.includes("U1")){
                        starsTotalArray[0] = starsTotalArray[0] + resultJson[key];
@@ -445,16 +400,12 @@ app.get('/getSingleTabStar/:userID', (req, res)=>{
 
                 });
                 res.send([0,starsTotal, starsTotalArray]);
-             
     }
 
-    
-
-
-    
 });
 });
 
+//GET - Statistic about particular learning Uni from Single Tap
 app.get('/getSingleTapStatistic/:value/:symbols',(req, res) =>{
    
     const id  = req.params.value;
@@ -491,6 +442,7 @@ app.get('/getSingleTapStatistic/:value/:symbols',(req, res) =>{
 
 });})
 
+// GET - stars for a prticualr Learning Unit inside Single Tap
 app.get('/getSingleTapStarsUnit/:value/:unitID', (req, res)=>{
     const id  = req.params.value;
     const unitId = req.params.unitID;
@@ -518,12 +470,12 @@ app.get('/getSingleTapStarsUnit/:value/:unitID', (req, res)=>{
 
 }})});
 
+
+//GET - symbols whit Tap Combination for Single Tap
 app.get('/getSymbolArraySingleTab/:symbolIds/:rightHand/:value', (req, res)=>{
     const symbolIds  = req.params.symbolIds;
     const rightHand = req.params.rightHand;
     const userID = req.params.value;
-
-    
 
     dbUser.query('SELECT id, righthand, lefthand, single FROM levels', (err, result) =>{
         if(err){
@@ -573,23 +525,18 @@ app.get('/getSymbolArraySingleTab/:symbolIds/:rightHand/:value', (req, res)=>{
                 }
             }
         }
-              console.log('dddd', allSymbolArray)
+              
                res.send([symbolArray, combinationArray, allSymbolArray, allCombinationArray]);
-        
-     
-           
-
-
 
         }
 
 
     })
 
-
-
 })
 
+
+//POST - reached points/ new statistic for Single Tap
 app.post('/statisticSingleTap',(req,res) =>{
   
 
@@ -707,9 +654,9 @@ app.post('/statisticSingleTap',(req,res) =>{
     
 })
 
+//POST - reached points/ new statistic for Single Tap with reponse form server side
 app.post('/statisticSingleTapWReponse',(req,res) =>{
-  
-
+ 
     const id = req.body.id;
     const letter = req.body.symbols ;
     const resultStat = req.body.statistic;
@@ -760,7 +707,7 @@ app.post('/statisticSingleTapWReponse',(req,res) =>{
                     if(err){
                         console.log(err);
                     }else{
-                        console.log('success Single Tap Add Statistic to Database');
+                        
                         if(unitLevelID == 'U0_L0'){
                             res.send(['Done']);
                         }
@@ -799,7 +746,7 @@ app.post('/statisticSingleTapWReponse',(req,res) =>{
                                 if(err){
                                     console.log(err);
                                 }else{
-                                    console.log('success');
+                                    
                                     res.send(['Done2']);
                                 }
                             }
@@ -822,6 +769,7 @@ app.post('/statisticSingleTapWReponse',(req,res) =>{
     
 })
 
+//GET - whole statistic of Single Tap
 app.get('/getAllStatisticSingle/:value',(req, res) =>{
    
     const id  = req.params.value;
@@ -834,12 +782,10 @@ app.get('/getAllStatisticSingle/:value',(req, res) =>{
             const resultJson = Object.values(JSON.parse(JSON.stringify(result)))[0];
          
            const keys = Object.keys(resultJson);
-
-                // print all keys
+                
                var statisticArr = [];
                var keyArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-              
+                     
                 // iterate over object
                 keys.forEach((key, index) => {
                  
@@ -860,8 +806,9 @@ app.get('/getAllStatisticSingle/:value',(req, res) =>{
 
 
 /**----------------------Double Tap----------------------------------------------------------------------------------------- */
-app.get('/getDoubleTabMenu', (req, res)=>{
 
+//GET - Double Tap Menu
+app.get('/getDoubleTabMenu', (req, res)=>{
  
     dbUser.query('SELECT nameModus,doubletap FROM overviewmenu', (err, result) =>{
       
@@ -883,15 +830,11 @@ app.get('/getDoubleTabMenu', (req, res)=>{
             res.send([moduArr,levelsArr]);
         }
 
-        
-    
-
-
-
     } )
 
 });
 
+//GET - Statistic about particular learning Unit from Double Tap
 app.get('/getDoubleTapStatistic/:value/:symbolIds',(req, res) =>{
     
     const id  = req.params.value;
@@ -907,7 +850,7 @@ app.get('/getDoubleTapStatistic/:value/:symbolIds',(req, res) =>{
 
                 // print all keys
                var statisticArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
+                
                 for(var i = 0; i< symbols.length; i++){
                     var currSymId = 'sid_' + symbols[i];
                    
@@ -925,11 +868,12 @@ app.get('/getDoubleTapStatistic/:value/:symbolIds',(req, res) =>{
             
                 res.send([statisticArr]);
             }
-                
+   
 
 
 });})
 
+//GET - Double Tap Stars for Double Tap menu view
 app.get('/getDoubleTapStar/:userID', (req, res)=>{
     
     const id  = req.params.userID;
@@ -968,10 +912,6 @@ app.get('/getDoubleTapStar/:userID', (req, res)=>{
                 res.send([0,starsTotal, starsTotalArray]);
               
     }
-
-    
-
-
     
 });
 });
@@ -1064,18 +1004,11 @@ app.get('/getSymbolArrayDoubleTap/:symbolIds/:rightHand/:value', (req, res)=>{
             
                   
                         res.send([symbolArray, combinationArray, allSymbolArray, allCombinationArray, doubleKeyCombi, doubleKeyCombiAll]);
-                    
-                   
-                        
-                       
+
                        
                     }
                   
-            
-            
-            
-                    
-            
+      
             
     })})
                         
@@ -1100,9 +1033,6 @@ app.post('/statisticDoubleTap',(req,res) =>{
                const keys = Object.keys(resultJson);
                 
                var valSids = [];
-                    // print all keys
-                   
-                    // [ 'java', 'javascript', 'nodejs', 'php' ]
     
                     // iterate over object
                     keys.forEach((key, index) => {
@@ -1126,16 +1056,13 @@ app.post('/statisticDoubleTap',(req,res) =>{
 
                     }}
                        
-                    
-                    
-                  
     
                     dbUser.query('UPDATE doubletap SET sid_3=?, sid_4=?, sid_5=?,sid_7=?, sid_8=?, sid_9=?, sid_10=?, sid_11=?, sid_13=?, sid_14=?, sid_15=?, sid_17=?, sid_18=?, sid_19=?, sid_21=?, sid_22=?, sid_23=?, sid_26=?, sid_27=?, sid_31=? WHERE userID = ?',
                     [valSids[0],valSids[1], valSids[2],valSids[3], valSids[4], valSids[5], valSids[6], valSids[7], valSids[8],valSids[9], valSids[10],valSids[11],valSids[12],valSids[13], valSids[14],valSids[15], valSids[16],valSids[17] ,valSids[18],valSids[19],id], (err, result) =>{
                         if(err){
                             console.log(err);
                         }else{
-                            console.log('success Double Tap Add Statistic to Database');
+                           
                             if(unitLevelID == 'U0_L0'){
                                 res.send(['Done']);
                             }
@@ -1190,11 +1117,7 @@ app.post('/statisticDoubleTap',(req,res) =>{
                               
              }
      
-     
 
-    
-        
-      
         
     })})
 
@@ -1210,13 +1133,10 @@ app.post('/statisticDoubleTap',(req,res) =>{
                 console.log(err);
             }else{
                 const resultJson = Object.values(JSON.parse(JSON.stringify(result)));
-             
-               const keys = Object.keys(resultJson);
-              
-                   var statisticArr = [];
-                   var keyArr = [];
-                    // [ 'java', 'javascript', 'nodejs', 'php' ]
-                  
+                const keys = Object.keys(resultJson);
+                var statisticArr = [];
+                var keyArr = [];
+                       
                     // iterate over object
                   for(var i =0; i< resultJson.length; i++){
                   
@@ -1235,10 +1155,7 @@ app.post('/statisticDoubleTap',(req,res) =>{
                     const resultJsonStat = Object.values(JSON.parse(JSON.stringify(result)))[0];
          
                     const keysStat = Object.keys(resultJsonStat);
-         
-                         // print all keys
-                       
-                       
+                               
                          // iterate over object
                          keysStat.forEach((key, index) => {
                             
@@ -1250,8 +1167,7 @@ app.post('/statisticDoubleTap',(req,res) =>{
                              }
                          
                          });
-                   
-    
+
                   
                     res.send([statisticArr, keyArr]);
         
@@ -1319,10 +1235,7 @@ app.get('/getTripleTapStar/:userID', (req, res)=>{
             
     }
 
-    
 
-
-    
 });
 });
 
@@ -1332,7 +1245,6 @@ app.get('/getSymbolArrayTripleTap/:symbolIds/:rightHand/:value', (req, res)=>{
     const userID = req.params.value;
     var symbolIdsTriple = [5,7,8,10,11,13,14,15,18,19,21,22,27];
 
-    
 
     dbUser.query('SELECT id, righthand, lefthand, triple, triplekeycombi  FROM levels', (err, result) =>{
         if(err){
@@ -1384,20 +1296,11 @@ app.get('/getSymbolArrayTripleTap/:symbolIds/:rightHand/:value', (req, res)=>{
             }
         }
      
-            console.log('xxTT',allCombinationArray);
-            res.send([symbolArray, combinationArray, allSymbolArray, allCombinationArray, tripleKeyCombi,tripleKeyCombiAll]);
-        
-       
             
-           
+            res.send([symbolArray, combinationArray, allSymbolArray, allCombinationArray, tripleKeyCombi,tripleKeyCombiAll]);
+  
            
         }
-      
-
-
-
-        
-
 
 })})
 
@@ -1416,7 +1319,7 @@ app.get('/getTripleTapStatistic/:value/:symbolIds',(req, res) =>{
 
                 // print all keys
                var statisticArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
+               
                 for(var i = 0; i< symbols.length; i++){
                     var currSymId = 'sid_' + symbols[i];
                 // iterate over object
@@ -1477,8 +1380,7 @@ app.post('/statisticTripleTap',(req,res) =>{
 
     var update = [];
     var updateStars = [];
-   
-    //for(var i = 0; i < letter.length; i++){
+ 
        dbUser.query('SELECT * FROM tripletap WHERE userID=?',  id , (err, result) =>{
         if(err){
             console.log(err);
@@ -1488,9 +1390,6 @@ app.post('/statisticTripleTap',(req,res) =>{
            const keys = Object.keys(resultJson);
             
            var valSids = [];
-                // print all keys
-               
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
 
                 // iterate over object
                 keys.forEach((key, index) => {
@@ -1514,16 +1413,14 @@ app.post('/statisticTripleTap',(req,res) =>{
                     }
                 }
                  
-                
-                
-              
+
 
                 dbUser.query('UPDATE tripletap SET sid_5=?, sid_7=?, sid_8=?, sid_10=?, sid_11=?, sid_13=?, sid_14=?, sid_15=?, sid_18=?, sid_19=?, sid_21=?, sid_22=?, sid_23=?, sid_26=?, sid_27=? WHERE userID = ?',
                 [valSids[0],valSids[1], valSids[2],valSids[3], valSids[4], valSids[5], valSids[6], valSids[7], valSids[8],valSids[9], valSids[10],valSids[11],valSids[12],valSids[13], valSids[14] ,id], (err, result) =>{
                     if(err){
                         console.log(err);
                     }else{
-                        console.log('success Triple Tap Add Statistic');
+                        
                         if(unitLevelID == 'U0_L0'){
                             res.send(['Done']);
                         }
@@ -1534,7 +1431,6 @@ app.post('/statisticTripleTap',(req,res) =>{
                          
         }
 
-
        })
 
 
@@ -1543,13 +1439,10 @@ app.post('/statisticTripleTap',(req,res) =>{
             console.log(err);
         }else{
             const resultJsonStars = Object.values(JSON.parse(JSON.stringify(result)))[0];
-         
             const keys = Object.keys(resultJsonStars);
- 
                 
                  keys.forEach((key, index) => {
-                     
-                     
+                                   
                      if(key == unitLevelID){
                          
                      if(resultJsonStars[key] < stars){
@@ -1572,17 +1465,10 @@ app.post('/statisticTripleTap',(req,res) =>{
                          }
                  
                  }});
-
-               
-                          
+            
          }
  
- 
 
-
-    
-  
-    
 })})
 
 app.get('/getAllStatisticTriple/:value',(req, res) =>{
@@ -1602,8 +1488,7 @@ app.get('/getAllStatisticTriple/:value',(req, res) =>{
                 // print all keys
                var statisticArr = [];
                var keyArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-              
+               
                 // iterate over object
               for(var i =0; i< resultJson.length; i++){
             
@@ -1624,8 +1509,7 @@ app.get('/getAllStatisticTriple/:value',(req, res) =>{
                 const keysStat = Object.keys(resultJsonStat);
      
                      // print all keys
-                   
-                   
+
                      // iterate over object
                      keysStat.forEach((key, index) => {
                         
@@ -1688,8 +1572,7 @@ app.get('/getShiftStar/:userID', (req, res)=>{
                    
                     if(key != "userID"){
                     starsTotal = starsTotal + resultJson[key];
-                    
-                    
+                            
                     }
                     if(key.includes("U1")){
                        starsTotalArray[0] = starsTotalArray[0] + resultJson[key];
@@ -1712,8 +1595,6 @@ app.get('/getShiftStar/:userID', (req, res)=>{
              
     }
 
-    
-
 
     
 });
@@ -1724,8 +1605,6 @@ app.get('/getSymbolArrayShift/:symbolIds/:rightHand/:value', (req, res)=>{
     const rightHand = req.params.rightHand;
     const userID = req.params.value;
     var symbolIdsShift = [1, 2,3,4,5,6,7,8,9,10,11,13,14,15,17,18,19,21,22,23,24,26,27];
-
-    
 
     dbUser.query('SELECT id, righthand, lefthand, shift, shiftkeycombi FROM levels', (err, result) =>{
         if(err){
@@ -1746,9 +1625,7 @@ app.get('/getSymbolArrayShift/:symbolIds/:rightHand/:value', (req, res)=>{
             }
 
             const keys = Object.keys(resultJson);
-            
-          
-            for(var i = 0; i< resultJson.length; i++){
+           for(var i = 0; i< resultJson.length; i++){
 
                 if(resultJson[i].id<smallestNum && symbolIdsShift.includes(resultJson[i].id)){
                     shiftKeyCombiAll.push(resultJson[i].shiftkeycombi);
@@ -1781,17 +1658,8 @@ app.get('/getSymbolArrayShift/:symbolIds/:rightHand/:value', (req, res)=>{
 
          
             res.send([symbolArray, combinationArray, allSymbolArray, allCombinationArray, shiftKeyCombi, shiftKeyCombiAll]);
-        
-       
-            
-           
-           
+
         }
-      
-
-
-
-        
 
 
 })})
@@ -1808,11 +1676,9 @@ app.get('/getShiftStatistic/:value/:symbolIds',(req, res) =>{
             const resultJson = Object.values(JSON.parse(JSON.stringify(result)))[0];
          
            const keys = Object.keys(resultJson);
-
-                // print all keys
+              
                var statisticArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-                for(var i = 0; i< symbols.length; i++){
+               for(var i = 0; i< symbols.length; i++){
                     var currSymId = 'sid_' + symbols[i];
                 // iterate over object
                 keys.forEach((key, index) => {
@@ -1828,8 +1694,6 @@ app.get('/getShiftStatistic/:value/:symbolIds',(req, res) =>{
               
                 res.send([statisticArr]);
             }
-                
-
 
 });})
 
@@ -1856,7 +1720,6 @@ app.get('/getShiftStarsUnit/:value/:unitID', (req, res)=>{
                     });
                   
                     res.send([starsTotalArray]);
-                
 
                     }
                 })
@@ -1873,7 +1736,7 @@ app.post('/statisticShift',(req,res) =>{
     var update = [];
     var updateStars = [];
    
-    //for(var i = 0; i < letter.length; i++){
+   
        dbUser.query('SELECT * FROM shift WHERE userID=?',  id , (err, result) =>{
         if(err){
             console.log(err);
@@ -1883,19 +1746,12 @@ app.post('/statisticShift',(req,res) =>{
            const keys = Object.keys(resultJson);
             
            var valSids = [];
-                // print all keys
-               
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-
+                                         
                 // iterate over object
                 keys.forEach((key, index) => {
                  
-
                     if(key !== 'userID'){
-                      
-                        valSids.push(resultJson[key]);
-
-
+                            valSids.push(resultJson[key]);
                     }  });
 
                 for(var i = 0; i< letter.length ; i++){
@@ -1908,15 +1764,14 @@ app.post('/statisticShift',(req,res) =>{
                      }
                     }
                 }
-            
-
+        
                 dbUser.query('UPDATE shift SET sid_1=?, sid_2=?, sid_3=?, sid_4=?, sid_5=?,sid_6=?, sid_7=?,sid_8=?, sid_9=?, sid_10=?, sid_11=?, sid_13=?, sid_14=?, sid_15=?, sid_17=?, sid_18=?, sid_19=?, sid_21=?, sid_22=?, sid_23=?,sid_24=?, sid_26=?, sid_27=? WHERE userID = ?',
                 [valSids[0],valSids[1], valSids[2],valSids[3], valSids[4], valSids[5], valSids[6], valSids[7], valSids[8],valSids[9], valSids[10],valSids[11],valSids[12],valSids[13], valSids[14],valSids[15], valSids[16],valSids[17] , valSids[18] ,valSids[19] ,valSids[20] ,valSids[21] ,valSids[22] ,id], (err, result) =>{
                     if(err){
                         console.log(err);
                     }else{
                       
-                        console.log('success Shift Stat');
+                       
                         if(unitLevelID == 'U0_L0'){
                             res.send(['Done']);
                         }
@@ -1970,21 +1825,14 @@ app.post('/statisticShift',(req,res) =>{
                           
          }
  
- 
 
-
-    
-  
-    
 })})
 
 app.get('/getAllStatisticShift/:value',(req, res) =>{
   
     const id  = req.params.value;
     var symbolIdsShift = [1, 2,3,4,5,6,7,8,9,10,11,13,14,15,17,18,19,21,22,23,24,26,27];
-        
- 
-   
+
     dbUser.query('SELECT id,shift FROM levels', (err, result) =>{
         if(err){
             console.log(err);
@@ -1992,12 +1840,10 @@ app.get('/getAllStatisticShift/:value',(req, res) =>{
             const resultJson = Object.values(JSON.parse(JSON.stringify(result)));
          
            const keys = Object.keys(resultJson);
-          
-                // print all keys
+
                var statisticArr = [];
                var keyArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-              
+                
                 // iterate over object
               for(var i =0; i< resultJson.length; i++){
               
@@ -2016,10 +1862,7 @@ app.get('/getAllStatisticShift/:value',(req, res) =>{
                 const resultJsonStat = Object.values(JSON.parse(JSON.stringify(result)))[0];
      
                 const keysStat = Object.keys(resultJsonStat);
-     
-                     // print all keys
-                   
-                   
+
                      // iterate over object
                      keysStat.forEach((key, index) => {
                       
@@ -2106,11 +1949,9 @@ app.get('/getSwitchStar/:userID', (req, res)=>{
     }
 
     
-
-
-    
 });
 });
+
 app.get('/getSymbolArraySwitch/:symbolIds/:rightHand/:value', (req, res)=>{
     const symbolIds  = req.params.symbolIds;
     const rightHand = req.params.rightHand;
@@ -2188,12 +2029,6 @@ app.get('/getSymbolArraySwitch/:symbolIds/:rightHand/:value', (req, res)=>{
            
            
         }
-      
-
-
-
-        
-
 
 })})
 
@@ -2212,7 +2047,7 @@ app.get('/getSwitchStatistic/:value/:symbolIds',(req, res) =>{
 
                 // print all keys
                var statisticArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
+                
                 for(var i = 0; i< symbols.length; i++){
                     var currSymId = 'sid_' + symbols[i];
                 // iterate over object
@@ -2228,10 +2063,9 @@ app.get('/getSwitchStatistic/:value/:symbolIds',(req, res) =>{
            
                 res.send([statisticArr]);
             }
-                
 
-
-});})
+});
+})
 
 app.get('/getSwitchStarsUnit/:value/:unitID', (req, res)=>{
     const id  = req.params.value;
@@ -2284,9 +2118,6 @@ app.post('/statisticSwitch',(req,res) =>{
             
            var valSids = [];
                 // print all keys
-               
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-
                 // iterate over object
                 keys.forEach((key, index) => {
                  
@@ -2316,7 +2147,7 @@ app.post('/statisticSwitch',(req,res) =>{
                         console.log(err);
                     }else{
                         
-                        console.log('success Switch Add Statistic');
+                        
                         if(unitLevelID == 'U0_L0'){
                             res.send(['Done']);
                         }
@@ -2371,11 +2202,7 @@ app.post('/statisticSwitch',(req,res) =>{
                           
          }
  
- 
 
-
-    
-  
     
 })})
 
@@ -2397,8 +2224,7 @@ app.get('/getAllStatisticSwitch/:value',(req, res) =>{
                 // print all keys
                var statisticArr = [];
                var keyArr = [];
-                // [ 'java', 'javascript', 'nodejs', 'php' ]
-              
+    
                 for(var x = 0; x< symbolIdsSwitch.length; x++){
                 // iterate over object
               for(var i =0; i< resultJson.length; i++){
@@ -2454,7 +2280,7 @@ app.post('/TimeToTapResult',(req,res) =>{
     var update = [];
     var updateStars = [];
    
-    //for(var i = 0; i < letter.length; i++){
+  
        dbUser.query('SELECT * FROM timetohitscore WHERE userID=?',  id , (err, result) =>{
         if(err){
             console.log(err);
@@ -2489,15 +2315,12 @@ app.post('/TimeToTapResult',(req,res) =>{
                 insertArr.splice(2,0, score);
                 insertArr.pop();
 
-       
-    
-
                 dbUser.query('UPDATE timetohitscore SET recordeHit=?, recordeAccuracy = ?, G1=?, G2=?, G3=?, G4=?, G5=?, G6=?, G7=?, G8=?, G9=?, G10=?, G11=?, G12=?, G13=?, G14=?, G15=?, G16=?, G17=?, G18=?, G19=?, G20=? WHERE userID = ?',
                 [insertArr[0],insertArr[1],insertArr[2],insertArr[3],insertArr[4],insertArr[5],insertArr[6],insertArr[7],insertArr[8],insertArr[9],insertArr[10],insertArr[11],insertArr[12],insertArr[13],insertArr[14],insertArr[15],insertArr[16],insertArr[17],insertArr[18],insertArr[19],insertArr[20],insertArr[21],id], (err, result) =>{
                     if(err){
                         console.log(err);
                     }else{
-                        console.log('success statistic Time To TAp');
+                        
                         res.send(['Done']);
                     }
                 }
@@ -2513,10 +2336,7 @@ app.post('/TimeToTapResult',(req,res) =>{
 app.get('/getTimeToHitRecords/:value',(req, res) =>{
   
     const id  = req.params.value;
-   
-        
- 
-   
+
     dbUser.query('SELECT recordeHit, recordeAccuracy FROM timetohitscore WHERE userID=?', id,(err, result) =>{
         if(err){
             console.log(err);
@@ -2570,7 +2390,7 @@ app.get('/getTimeToHitRecords/:value',(req, res) =>{
                 
                     res.send([statRes]);
     
-          }})  }) //;})
+          }})  }) 
 
  app.post('/FiveTimesResult',(req,res) =>{
             const id = req.body.id;
@@ -2581,7 +2401,7 @@ app.get('/getTimeToHitRecords/:value',(req, res) =>{
             var update = [];
             var updateStars = [];
            
-            //for(var i = 0; i < letter.length; i++){
+  
                dbUser.query('SELECT * FROM fivetimes WHERE userID=?',  id , (err, result) =>{
                 if(err){
                     console.log(err);
@@ -2641,9 +2461,6 @@ app.get('/getFiveTimeRecords/:value',(req, res) =>{
   
             const id  = req.params.value;
            
-                
-         
-           
             dbUser.query('SELECT recordeScore, recordeAccuracy FROM fivetimes WHERE userID=?', id,(err, result) =>{
                 if(err){
                     console.log(err);
@@ -2696,7 +2513,7 @@ app.get('/getFiveTimeRecords/:value',(req, res) =>{
                        
                             res.send([statRes]);
             
-                  }})  }) //;})
+                  }})  }) 
 
 app.get('/getFiveTimesWords',(req, res) =>{
                               
@@ -2718,7 +2535,7 @@ app.get('/getFiveTimesWords',(req, res) =>{
                            
                                 res.send([statRes]);
                 
-                      }})  }) //;})
+                      }})  }) 
 
 
  app.get('/getCodingsWords',(req, res) =>{
@@ -2739,7 +2556,7 @@ app.get('/getFiveTimesWords',(req, res) =>{
                                     
                                            res.send([statRes]);
                            
-                                 }})  }) //;})
+                                 }})  }) 
                                 
  app.get('/getCodingRecords/:value',(req, res) =>{
 
@@ -2755,7 +2572,7 @@ app.get('/getFiveTimesWords',(req, res) =>{
                  
                       var accuracy = [];
                       var streak = [];
-                        // iterate over object
+                       
                        keys.forEach((key, index) => {
                         if(key === 'recordeScore'){
                           streak.push(resultJson[key]);
@@ -2771,25 +2588,26 @@ app.get('/getFiveTimesWords',(req, res) =>{
     
  app.post('/CodingResult',(req,res) =>{
 
-      const id = req.body.id;
-     const accuracy = req.body.accuracy ;
-      const score = req.body.score;
-  
-           var update = [];
-              var updateStars = [];
-                   //for(var i = 0; i < letter.length; i++){
-         dbUser.query('SELECT * FROM codinggame WHERE UserID=?',  id , (err, result) =>{
-          if(err){
-                console.log(err);
-          }else{
-           const resultJson = Object.values(JSON.parse(JSON.stringify(result)))[0];
-                  const keys = Object.keys(resultJson);
-                        var insertArr = [];
-                          keys.forEach((key, index) => {
+    const id = req.body.id;
+    const accuracy = req.body.accuracy ;
+    const score = req.body.score;
+
+    var update = [];
+    var updateStars = [];
+              
+    dbUser.query('SELECT * FROM codinggame WHERE UserID=?',  id , (err, result) =>{
+        if(err){
+            console.log(err);
+        }else{
+            const resultJson = Object.values(JSON.parse(JSON.stringify(result)))[0];
+            const keys = Object.keys(resultJson);
+            var insertArr = [];
+            keys.forEach((key, index) => {
                                                      
-                    if(key !== 'UserID'){
-                            insertArr.push(resultJson[key]);
-                       }  });
+                if(key !== 'UserID'){
+                    insertArr.push(resultJson[key]);
+                } 
+             });
                                    
                                              
                  var nextVal = 0;
@@ -2807,21 +2625,15 @@ app.get('/getFiveTimesWords',(req, res) =>{
                   dbUser.query('UPDATE codinggame SET  recordeAccuracy =?, recordeScore = ?, G1=?, G2=?, G3=?, G4=?, G5=?, G6=?, G7=?, G8=?, G9=?, G10=?, G11=?, G12=?, G13=?, G14=?, G15=?, G16=?, G17=?, G18=?, G19=?, G20=? WHERE UserID = ?',
                                [insertArr[0],insertArr[1],insertArr[2],insertArr[3],insertArr[4],insertArr[5],insertArr[6],insertArr[7],insertArr[8],insertArr[9],insertArr[10],insertArr[11],insertArr[12],insertArr[13],insertArr[14],insertArr[15],insertArr[16],insertArr[17],insertArr[18],insertArr[19],insertArr[20],insertArr[21],id], (err, result) =>{
                                          if(err){
-                                             console.log(err);
+                                                console.log(err);
                                             }else{
-                                            
-                                                console.log('success Coding Statistic');
                                                 res.send(['Done']);
                                             }
-                                                    }
-                                                        )
-                                                             
-                                            }
+                                        })
+                                    }
+                                 })
                                     
-                                    
-                                           })
-                                    
-                                    })
+                         })
 
   app.get('/getAllStatisticCoding/:value',(req, res) =>{
 
@@ -2845,7 +2657,7 @@ app.get('/getFiveTimesWords',(req, res) =>{
                               
                              }
                                 
-       })
+                         })
                                 
                                    
                                       res.send([statRes]);
