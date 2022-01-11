@@ -1,4 +1,4 @@
-import{createContext} from "react";
+import { createContext } from "react";
 
 export const idContext = createContext(null);
 export const symbolsContext = createContext(null);

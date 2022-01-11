@@ -1,139 +1,124 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.information{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+.information {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
 }
 
-input, select{
-  width: 300px;
-  height: 50px;
-  font-size: 20px;
-  padding-left: 10px;
-  margin-top: 5px;
+input,
+select {
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	padding-left: 10px;
+	margin-top: 5px;
 }
-button{
-  width: 300px;
-  height: 50px;
-  margin-top:15px;
-}
-
-button:hover{
-  cursor: pointer;
+button {
+	width: 300px;
+	height: 50px;
+	margin-top: 15px;
 }
 
-.employees, .user{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: center;
-
-}
-.userListResult{
-  
-  align-items: center;
-  width: 800px;
-  height: auto;
-  border: 1px solid black;
-  margin: 10px;
-  display: flex;
-  padding: 10px;
-  font-family: 'Courier New', Courier, monospace;
-
+button:hover {
+	cursor: pointer;
 }
 
-.employeListResult h3{
-  margin: 20px;
+.employees,
+.user {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: center;
 }
-h3, h5{
-  display: flex;
-  justify-content:center;
-
-}
-.buttonList{
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin: 10px;
-  width: 200px;
-  height: 40px;
-  margin-top:10px;
-
-}
-.half{
-  width: 30%;
-}
-.half2{
-  flex-direction: row;
-  width: 35%;
-}
-.half2Dis{
-  flex-direction: row;
-  width: 35%;
-}
-#registerButton{
-  background-color: rgb(124, 204, 113);
-  height: 80px;
-}
-#selectUserButton{
-  background-color: rgb(28, 114, 185);
-  width: 200px;
-  height: 60px;
-  font-size: 18px;
-  
- 
-}
-input, select{
- 
- background-color: rgb(252, 252, 252);
-}
-@media (max-width : 800px) {
-  .half2Dis{
-   width:10%;
-  }
- .userListResult{
-   width:600px;
- }
- #selectUserButton{
-      
-      width: 150px;
-      height: 50px;
-      font-size: 14px;
-      
-     
+.userListResult {
+	align-items: center;
+	width: 800px;
+	height: auto;
+	border: 1px solid black;
+	margin: 10px;
+	display: flex;
+	padding: 10px;
+	font-family: "Courier New", Courier, monospace;
 }
 
+.employeListResult h3 {
+	margin: 20px;
 }
-@media (max-width : 600px) {
-  .half2Dis{
-   width:10%;
-  }
- .userListResult{
-   width: 350px;
- }
- #selectUserButton{
-    
-      width: 150px;
-      height: 50px;
-      font-size: 14px;
-      
-      
+h3,
+h5 {
+	display: flex;
+	justify-content: center;
 }
-
+.buttonList {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	margin: 10px;
+	width: 200px;
+	height: 40px;
+	margin-top: 10px;
 }
-@media (max-width : 300px) {
-  
- .returnMenuDiv{
-  overflow-x:scroll; 
-    overflow-y: scroll; 
- }
- 
-
+.half {
+	width: 30%;
+}
+.half2 {
+	flex-direction: row;
+	width: 35%;
+}
+.half2Dis {
+	flex-direction: row;
+	width: 35%;
+}
+#registerButton {
+	background-color: rgb(124, 204, 113);
+	height: 80px;
+}
+#selectUserButton {
+	background-color: rgb(28, 114, 185);
+	width: 200px;
+	height: 60px;
+	font-size: 18px;
+}
+input,
+select {
+	background-color: rgb(252, 252, 252);
+}
+@media (max-width: 800px) {
+	.half2Dis {
+		width: 10%;
+	}
+	.userListResult {
+		width: 600px;
+	}
+	#selectUserButton {
+		width: 150px;
+		height: 50px;
+		font-size: 14px;
+	}
+}
+@media (max-width: 600px) {
+	.half2Dis {
+		width: 10%;
+	}
+	.userListResult {
+		width: 350px;
+	}
+	#selectUserButton {
+		width: 150px;
+		height: 50px;
+		font-size: 14px;
+	}
+}
+@media (max-width: 300px) {
+	.returnMenuDiv {
+		overflow-x: scroll;
+		overflow-y: scroll;
+	}
 }

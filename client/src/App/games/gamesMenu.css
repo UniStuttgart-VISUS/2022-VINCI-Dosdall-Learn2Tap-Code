@@ -1,265 +1,224 @@
 .mainDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    
-  }
-#showLetterDivCoding{
-  background-color: rgb(206, 197, 197);
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  width: 100%;
-  align-items: center;
-  text-align: center;
-  background-color: 
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	text-align: center;
 }
- .word{
-    display: inline-block;
-    font-size: 20px;
-
-
-  }
-.showWord{
-    float:left;
+#showLetterDivCoding {
+	background-color: rgb(206, 197, 197);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	text-align: center;
+	background-color: ;
 }
-.showSymbolDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-
+.word {
+	display: inline-block;
+	font-size: 20px;
 }
-.statisticLetterMenu{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 350px;
-    height: 300px;
-    align-items: center;
-    text-align: center;
-   
+.showWord {
+	float: left;
 }
-h2{
-    align-items: center;
-    text-align: center;
-    justify-content:center;
+.showSymbolDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	text-align: center;
+}
+.statisticLetterMenu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 350px;
+	height: 300px;
+	align-items: center;
+	text-align: center;
+}
+h2 {
+	align-items: center;
+	text-align: center;
+	justify-content: center;
 }
 
-
-h4{
-    text-align: center;
+h4 {
+	text-align: center;
 }
 
 .levelButton {
-   
-    color: coral;
+	color: coral;
 }
 
-.menuBackButton{
-    
-    width: 100px;
-    margin: 2px;
+.menuBackButton {
+	width: 100px;
+	margin: 2px;
 }
 
-.showLetterTutoriel{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width:500px;
-    height: 350px;
-  
-
+.showLetterTutoriel {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 500px;
+	height: 350px;
 }
-#shiftLetter{
-  font-size: 25px;
+#shiftLetter {
+	font-size: 25px;
 }
-#letterTutoriel{
-    font-size:50px;
+#letterTutoriel {
+	font-size: 50px;
 }
-#pauseButtonGames{
-    background-color: rgb(22, 139, 100);
-    width: 200px;
-    height: 80px;
-    
-    
-
+#pauseButtonGames {
+	background-color: rgb(22, 139, 100);
+	width: 200px;
+	height: 80px;
 }
-#pauseDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-
+#pauseDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	text-align: center;
 }
-.bar{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width:500px;
-    height: 100px;
-   
-    
+.bar {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 500px;
+	height: 100px;
 }
-#rightCode{
-  background-color: rgb(206, 197, 197);
+#rightCode {
+	background-color: rgb(206, 197, 197);
 }
-#modeSelectionDiv{
-  background-color: rgb(206, 197, 197);
+#modeSelectionDiv {
+	background-color: rgb(206, 197, 197);
 }
-#formCode{
-  background-color: rgb(206, 197, 197);
+#formCode {
+	background-color: rgb(206, 197, 197);
 }
-#sel1{
-  width: 200px;
-  text-align: center;
-  background-color: #fdfdfd;
-
+#sel1 {
+	width: 200px;
+	text-align: center;
+	background-color: #fdfdfd;
 }
 #svgelem {
-    position: relative;
-    left: 10%;
-    -webkit-transform: translateX(-20%);
-    -ms-transform: translateX(-20%);
-    transform: translateX(-20%);
- }
-.modeSelection{
-
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 100%;
-    align-items: center;
-    text-align: center;
+	position: relative;
+	left: 10%;
+	-webkit-transform: translateX(-20%);
+	-ms-transform: translateX(-20%);
+	transform: translateX(-20%);
+}
+.modeSelection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	text-align: center;
 }
 
 .custom_checkbox {
-    width:25px;
-    height: 25px;
-    cursor: pointer;
-  }
-  .menuDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 100%;
-    align-items: center;
-  }
-  #symbolDiv{
-    background-color: antiquewhite;
-      height:250px;
-    
-  }
-  #symbolDivCoding{
-     
-    height:250px;
-    background-color: antiquewhite;
-   
-    align-items: left;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
 }
-#codingGameScoreDiv{
-  background-color: antiquewhite;
-
+.menuDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
 }
-  #accuracyDiv{
-    background-color: antiquewhite;
-      height:100px;
-    
-  }
-  #prac{
-    background-color: rgb(206, 197, 197);
-  }
-  #recordsDiv{
-      height:120px;
-      width:500px;
-      background-color: antiquewhite;
-      
-  }
-  #gameButtonGamesMenu{
-    background-color: rgb(224, 221, 26);
-    width: 450px;
-    height: 110px;
-  }
-  #startButtonGames{
-      background-color: rgb(22, 139, 100);
-  }
-#showLetterGames{
-    background-color: antiquewhite;
-
-
-
+#symbolDiv {
+	background-color: antiquewhite;
+	height: 250px;
 }
-#dialogButtonGames{
-  background-color:  rgb(137, 150, 151); ;
-  height: 100px;
-  width:250px;
+#symbolDivCoding {
+	height: 250px;
+	background-color: antiquewhite;
 
-
+	align-items: left;
 }
-  @media (max-width : 450px) {
-      #spaceDivHeader{
-          background-color: black;
-          display: none;
-      }
-      #pauseButtonGames{
-        font-size: 16px;
-        height: 70px;
-          width: 100px;
+#codingGameScoreDiv {
+	background-color: antiquewhite;
+}
+#accuracyDiv {
+	background-color: antiquewhite;
+	height: 100px;
+}
+#prac {
+	background-color: rgb(206, 197, 197);
+}
+#recordsDiv {
+	height: 120px;
+	width: 500px;
+	background-color: antiquewhite;
+}
+#gameButtonGamesMenu {
+	background-color: rgb(224, 221, 26);
+	width: 450px;
+	height: 110px;
+}
+#startButtonGames {
+	background-color: rgb(22, 139, 100);
+}
+#showLetterGames {
+	background-color: antiquewhite;
+}
+#dialogButtonGames {
+	background-color: rgb(137, 150, 151);
+	height: 100px;
+	width: 250px;
+}
+@media (max-width: 450px) {
+	#spaceDivHeader {
+		background-color: black;
+		display: none;
+	}
+	#pauseButtonGames {
+		font-size: 16px;
+		height: 70px;
+		width: 100px;
+	}
+	#menuButtonSingleTap {
+		width: 150px;
+	}
+	#codingGameScoreDiv {
+		width: 300px;
+	}
+	#symbolDivCoding {
+		width: 300px;
+	}
 
-      }
-      #menuButtonSingleTap{
-        width: 150px;
+	#gameButtonGamesMenu {
+		width: 300px;
+		height: 190px;
+	}
+	#startButtonGames {
+		width: 300px;
+	}
+	#symbolDiv {
+		width: 300px;
+	}
 
-      }
-      #codingGameScoreDiv{
-        width: 300px;
-      }
-      #symbolDivCoding{
-        width: 300px;
-
-      }
-  
-    #gameButtonGamesMenu{
-      
-        width: 300px;
-        height: 190px;
-      }
-      #startButtonGames{
-            width:300px;
-      }
-      #symbolDiv{
-       width: 300px;
-        
-      }
- 
-      #accuracyDiv{
-        width: 300px;
-        
-      }
-      #recordsDiv{
-        width: 300px;
-        height: 100px;
-          
-      }
-      #showLetterGames{
-        width: 300px;
-    
-    
-    
-    }
-    #letterTutoriel{
-        font-size: 50px;
-    }
-
-
-  }
+	#accuracyDiv {
+		width: 300px;
+	}
+	#recordsDiv {
+		width: 300px;
+		height: 100px;
+	}
+	#showLetterGames {
+		width: 300px;
+	}
+	#letterTutoriel {
+		font-size: 50px;
+	}
+}

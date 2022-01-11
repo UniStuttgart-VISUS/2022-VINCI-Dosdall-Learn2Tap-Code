@@ -1,437 +1,370 @@
 .menuDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 100%;
-    align-items: center;
-
-  }
-a{
-    color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
 }
-  
-h2{
-    display: flex;
-  flex-direction: column;
-  justify-content:center;
-  text-align: center;
-}
-#practiceButton{
-    width: 280px;
-    height: 80px;
-    
-    
-    margin-top:15px;
-    margin-left: 10px;
-   
-    display: inline-block;
-   
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #fefefe;
-    text-align: center;
-    font-size: 22px;
-    padding: 20px;
-   background-color: rgb(20, 214, 150);
-   
-    cursor: pointer;
-
-
+a {
+	color: black;
 }
 
+h2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+#practiceButton {
+	width: 280px;
+	height: 80px;
 
-#delode{
-    width: 70px;
-    height: 80px;
-  
-    margin-top:15px;
-    
-    margin-right: 10px;
-    display: inline-block;
-   
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #fefefe;
-    text-align: center;
-    font-size: 22px;
-    padding: 20px;
-   
-   background-color: rgb(20, 214, 150);
-    cursor: pointer;
+	margin-top: 15px;
+	margin-left: 10px;
 
+	display: inline-block;
+
+	border-radius: 10px;
+	border: 4px double #cccccc;
+	color: #fefefe;
+	text-align: center;
+	font-size: 22px;
+	padding: 20px;
+	background-color: rgb(20, 214, 150);
+
+	cursor: pointer;
+}
+
+#delode {
+	width: 70px;
+	height: 80px;
+
+	margin-top: 15px;
+
+	margin-right: 10px;
+	display: inline-block;
+
+	border-radius: 10px;
+	border: 4px double #cccccc;
+	color: #fefefe;
+	text-align: center;
+	font-size: 22px;
+	padding: 20px;
+
+	background-color: rgb(20, 214, 150);
+	cursor: pointer;
 }
 .buttonShiftMenu {
-    
-    width: 550px;
-    height: 100px;
-    margin-top:15px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-.normalButton, .buttonLetterMenu {
-    
-    width: 350px;
-    height: 80px;
-    margin-top:15px;
-    margin-left: 10px;
-    margin-right: 10px;
-    display: inline-block;
-   
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #fefefe;
-    text-align: center;
-    font-size: 22px;
-    padding: 20px;
-   
-   
-    cursor: pointer;
-    
-  }
-  
-  button:hover{
-    cursor: pointer;
-  }
-
-.Practice{
-    display:inline;
-    align-items: center;
-}
-#demo{
-    background-color: rgb(184, 240, 184);
-    width: 350px;
-    text-align: center;
-
-
+	width: 550px;
+	height: 100px;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
-.distance{
-    height: 3px;
+.normalButton,
+.buttonLetterMenu {
+	width: 350px;
+	height: 80px;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline-block;
+
+	border-radius: 10px;
+	border: 4px double #cccccc;
+	color: #fefefe;
+	text-align: center;
+	font-size: 22px;
+	padding: 20px;
+
+	cursor: pointer;
 }
 
-
-
-
-.tableRight{
-    width: 45%;
-    display: inline-block;
+button:hover {
+	cursor: pointer;
 }
 
-.tableLeft{
-    width: 40%;
-    display: inline-block;
+.Practice {
+	display: inline;
+	align-items: center;
+}
+#demo {
+	background-color: rgb(184, 240, 184);
+	width: 350px;
+	text-align: center;
 }
 
-.tableSpace{
-    width:5%;
-    display: inline-block;
-}
-.userAdmin{
-    display: flex;
-    flex-direction: column;
-    justify-content:left;
-    width: 100%;
-    align-items:left;
-
+.distance {
+	height: 3px;
 }
 
-.userAdmin button{
-    margin:10px;
-    width: 180px;
+.tableRight {
+	width: 45%;
+	display: inline-block;
 }
-#hintsDiv{
-  justify-content:left;
-  text-align: left;
+
+.tableLeft {
+	width: 40%;
+	display: inline-block;
+}
+
+.tableSpace {
+	width: 5%;
+	display: inline-block;
+}
+.userAdmin {
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	width: 100%;
+	align-items: left;
+}
+
+.userAdmin button {
+	margin: 10px;
+	width: 180px;
+}
+#hintsDiv {
+	justify-content: left;
+	text-align: left;
 }
 
 .alert {
-    padding: 20px;
-    background-color:royalblue ;
-    color: white;
-  }
-  
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .closebtn:hover {
-    color: black;
-  }
-  #glossaryButton{
-    
-    background-color: #6faee2;
-    
-  }
-  #statisticButton{
-    background-color: rgb(139, 14, 83);
-  }
-  #gameButton{
-    background-color: rgb(224, 221, 26);
-  }
-  #hintButton{
-    background-color: rgba(16, 195, 250, 0.205);
-    width: 150px;
-    color: black;
-  }
-  #userAdministrationButton{
-    width: 250px;
-    background-color:rgba(16, 195, 250, 0.205);
-    color: black;
-  }
-  #returnMenuDiv{
-    background-color: rgb(206, 197, 197);
-    height: 100vh;
-    width: 100vw;
-    overflow-x:hidden; 
-    overflow-y: scroll; 
-  }
-  #buttonDiv{
-    margin-bottom: 30px;
-  }
-
-  #glossaryButtonPractice{
-
-    width: 250px;
-    background-color: #6faee2;
-
-
-  }
-
-  #practicButtonMenu{
-    background-color: rgb(20, 214, 150);
-    height: 90px;
-    width: 400px;
-    font-size: 18px;
-
-
-  }
-
-  #practicButtonMenuDT{
-    background-color: rgb(20, 214, 150);
-    height: 90px;
-    width: 350px;
-    font-size: 18px;
-
-  }
-  #practicButtonMenuTT{
-    background-color: rgb(20, 214, 150);
-    height: 90px;
-    width: 350px;
-    font-size: 18px;
-
-  }
-  #practicButtonMenuSwitch{
-    background-color: rgb(20, 214, 150);
-    height: 90px;
-    width: 350px;
-    font-size: 16px;
-
-  }
-
-  #practicButtonMenuShift{
-    background-color: rgb(20, 214, 150);
-    height: 120px;
-    width: 600px;
-    font-size: 16px;
-
-  }
-  #practicButtonMenuFF{
-    background-color: rgb(20, 214, 150);
-    height: 90px;
-    width: 350px;
-    font-size: 16px;
-
-
-  }
-  #practicButtonMenuFFX{
-    background-color: rgb(20, 214, 150);
-    height: 70px;
-    width: 250px;
-    font-size: 16px;
-
-
-  }
- #alertShift{
-   font-size: 16px;
- }
- #alertSwitch{
-  font-size: 16px;
- }
-  #menuButtonSingleTap{
-    background-color:rgba(16, 195, 250, 0.205);
-    color: black;
-    height: 80px;
-    width: 200px;
-    font-size: 18px;
-
-
-  }
-  #glossaryButtonSingleTapMenu{
-    color: black;
-    height: 80px;
-    width: 200px;
-    font-size: 18px;
-    background-color: #6faee2;
-
-
-  }
-  p{
-    font-size: 22px;
-  }
-  #headerLearn {
-    color: #14181a;
-    -webkit-mask-box-image: -webkit-gradient(linear,
-                left top, left bottom,
-                color-stop(20%,rgba(0,0,0,1)),
-                color-stop(100%,rgba(0,0,0,0)))
-}
-  @media (max-width : 400px) {
-    #addSpace{
-    
-    width: 0%;
-    display:none;
-      
-    }
-    #hintButton{
-     
-      display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 80%;
-    align-items: center;
-   }
-   #userAdministrationButton{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width:100%;
-    align-items: center;
-   
-    
-  }
-
-  #practicButtonMenu{
-    font-size: 16px;
-    height: 100px;
-    width: 240px;
-
-
-  }
-  #practicButtonMenuDT{
-    
-   align-items: center; 
-    font-size: 16px;
-    height: 100px;
-    width: 300px;
-
-  }
-  #practicButtonMenuTT{
-    
-    align-items: center; 
-     font-size: 16px;
-     height: 100px;
-     width: 300px;
- 
-   }
-   #practicButtonMenuSwitch{
-    align-items: center; 
-    font-size: 14px;
-    height: 100px;
-    width: 300px;
-
-   }
-   #alertShift{
-    font-size: 12px;
-  }
-  #alerSwitch{
-    font-size: 14px;
-
-  }
-   #practicButtonMenuShift{
-   
-    height: 120px;
-    width: 360px;
-    font-size: 12px;
-
-  }
-  #menuButtonSingleTap{
-   
-    height: 70px;
-    width: 120px;
-    font-size: 16px;
-
-
-  }
-  #glossaryButtonSingleTapMenu{
-   
-    height: 70px;
-    width: 120px;
-    font-size: 16px;
-    background-color: #6faee2;
-
-
-  }
-  #spaceDivHeader{
-    display: none;
-
-    width: 0px;
-  }
-  #glossaryButtonDiv{
-   
-      float:left;
-      right: 0px;
-    
-  }
-  .returnMenuDiv{
-    overflow-x:scroll; 
-      overflow-y: scroll; 
-   }
-  }
-  @media (max-width : 370px) {
-    #addSpace{
-    
-    width: 0%;
-    display:none;
-      
-    }
-    #hintButton{
-     
-      display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 80%;
-    align-items: center;
-   }
-   #userAdministrationButton{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width:100%;
-    align-items: center;
-   
-    
-  }
-  #practiceButton{
-    width: 250px;
-   
-
-
+	padding: 20px;
+	background-color: royalblue;
+	color: white;
 }
 
-
-#delode{
-    width: 70px;
-    
-
+.closebtn {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
+.closebtn:hover {
+	color: black;
+}
+#glossaryButton {
+	background-color: #6faee2;
+}
+#statisticButton {
+	background-color: rgb(139, 14, 83);
+}
+#gameButton {
+	background-color: rgb(224, 221, 26);
+}
+#hintButton {
+	background-color: rgba(16, 195, 250, 0.205);
+	width: 150px;
+	color: black;
+}
+#userAdministrationButton {
+	width: 250px;
+	background-color: rgba(16, 195, 250, 0.205);
+	color: black;
+}
+#returnMenuDiv {
+	background-color: rgb(206, 197, 197);
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#buttonDiv {
+	margin-bottom: 30px;
+}
 
-  }
+#glossaryButtonPractice {
+	width: 250px;
+	background-color: #6faee2;
+}
+
+#practicButtonMenu {
+	background-color: rgb(20, 214, 150);
+	height: 90px;
+	width: 400px;
+	font-size: 18px;
+}
+
+#practicButtonMenuDT {
+	background-color: rgb(20, 214, 150);
+	height: 90px;
+	width: 350px;
+	font-size: 18px;
+}
+#practicButtonMenuTT {
+	background-color: rgb(20, 214, 150);
+	height: 90px;
+	width: 350px;
+	font-size: 18px;
+}
+#practicButtonMenuSwitch {
+	background-color: rgb(20, 214, 150);
+	height: 90px;
+	width: 350px;
+	font-size: 16px;
+}
+
+#practicButtonMenuShift {
+	background-color: rgb(20, 214, 150);
+	height: 120px;
+	width: 600px;
+	font-size: 16px;
+}
+#practicButtonMenuFF {
+	background-color: rgb(20, 214, 150);
+	height: 90px;
+	width: 350px;
+	font-size: 16px;
+}
+#practicButtonMenuFFX {
+	background-color: rgb(20, 214, 150);
+	height: 70px;
+	width: 250px;
+	font-size: 16px;
+}
+#alertShift {
+	font-size: 16px;
+}
+#alertSwitch {
+	font-size: 16px;
+}
+#menuButtonSingleTap {
+	background-color: rgba(16, 195, 250, 0.205);
+	color: black;
+	height: 80px;
+	width: 200px;
+	font-size: 18px;
+}
+#glossaryButtonSingleTapMenu {
+	color: black;
+	height: 80px;
+	width: 200px;
+	font-size: 18px;
+	background-color: #6faee2;
+}
+p {
+	font-size: 22px;
+}
+#headerLearn {
+	color: #14181a;
+	-webkit-mask-box-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(20%, rgba(0, 0, 0, 1)),
+		color-stop(100%, rgba(0, 0, 0, 0))
+	);
+}
+@media (max-width: 400px) {
+	#addSpace {
+		width: 0%;
+		display: none;
+	}
+	#hintButton {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 80%;
+		align-items: center;
+	}
+	#userAdministrationButton {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		align-items: center;
+	}
+
+	#practicButtonMenu {
+		font-size: 16px;
+		height: 100px;
+		width: 240px;
+	}
+	#practicButtonMenuDT {
+		align-items: center;
+		font-size: 16px;
+		height: 100px;
+		width: 300px;
+	}
+	#practicButtonMenuTT {
+		align-items: center;
+		font-size: 16px;
+		height: 100px;
+		width: 300px;
+	}
+	#practicButtonMenuSwitch {
+		align-items: center;
+		font-size: 14px;
+		height: 100px;
+		width: 300px;
+	}
+	#alertShift {
+		font-size: 12px;
+	}
+	#alerSwitch {
+		font-size: 14px;
+	}
+	#practicButtonMenuShift {
+		height: 120px;
+		width: 360px;
+		font-size: 12px;
+	}
+	#menuButtonSingleTap {
+		height: 70px;
+		width: 120px;
+		font-size: 16px;
+	}
+	#glossaryButtonSingleTapMenu {
+		height: 70px;
+		width: 120px;
+		font-size: 16px;
+		background-color: #6faee2;
+	}
+	#spaceDivHeader {
+		display: none;
+
+		width: 0px;
+	}
+	#glossaryButtonDiv {
+		float: left;
+		right: 0px;
+	}
+	.returnMenuDiv {
+		overflow-x: scroll;
+		overflow-y: scroll;
+	}
+}
+@media (max-width: 370px) {
+	#addSpace {
+		width: 0%;
+		display: none;
+	}
+	#hintButton {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 80%;
+		align-items: center;
+	}
+	#userAdministrationButton {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		align-items: center;
+	}
+	#practiceButton {
+		width: 250px;
+	}
+
+	#delode {
+		width: 70px;
+	}
+}
