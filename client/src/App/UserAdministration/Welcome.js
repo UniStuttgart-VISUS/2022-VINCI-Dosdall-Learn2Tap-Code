@@ -7,17 +7,14 @@ import Cookies from 'js-cookie';
 import { sendUserTracking } from "../functions/functions";
 
 export const Welcome = props => {
-   const {value,setValue} =  useContext(idContext);
-   const[askSpecificUser, setAskSpecificUser] = useState(false)
-    const[userList, setUserList]= useState([]);
-    const[initialize,setInitialize]= useState(true);
-  
-    const[showMenu, setShowMenu] = useState(false);
-    const[killIntervall, setKillIntervall] = useState(false);
+  const {value,setValue} =  useContext(idContext);
+  const[askSpecificUser, setAskSpecificUser] = useState(false)
+  const[userList, setUserList]= useState([]);
+  const[initialize,setInitialize]= useState(true);
+  const[showMenu, setShowMenu] = useState(false);
+  const[killIntervall, setKillIntervall] = useState(false);
 
-
-
-    //Get a specific User
+  //Get a specific User
     const getSpecificUser = (name) =>{
      
         Axios.get(`http://localhost:3001/specificUser/${name}`).then((response)=>{
@@ -38,22 +35,19 @@ export const Welcome = props => {
     
     useEffect(() => {
       const timer = setInterval(() => {
-       
-     
-      //Iniialize everything in the begining  
+          //Initialize everything in the begining  
       if(initialize){
             
         Axios.get(`http://localhost:3001/Users/${initialize}`).then((response)=>{
           setUserList(response.data);
                          
         });
-      
-        //getUser();
+            
          setInitialize(false);
     
       }else{
         setShowMenu(true);
-       setKillIntervall(true);
+        setKillIntervall(true);
       }
     
     }, 100);
@@ -76,7 +70,7 @@ export const Welcome = props => {
                   sendUserTracking(value, 'button click', 'menu button', 'User Administration' );  
                   setInitialize(true);  
                   window.location.href=  '/Learn2Tap';
-                 // props.history.push("/");
+               
                 }
                 }
                 >Menu</button>
@@ -87,8 +81,7 @@ export const Welcome = props => {
         <button  class="normalButton" id="registerButton" onClick={() => {
             sendUserTracking(value, 'button click', 'Registration button', 'User Administration' );  
             window.location.href=  '/Learn2Tap/Register';
-            
-            //props.history.push("/Register");
+
           }}>
           Register
         </button>

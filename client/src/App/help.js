@@ -10,11 +10,8 @@ import Cookies from 'js-cookie';
 
 export const Help = props => {
   const {value,setValue} =  useContext(idContext);
-
-const[initialize, setInitialize] = useState(true);
-const[rightHand, setRightHand] = useState(true);
-
-
+  const[initialize, setInitialize] = useState(true);
+  const[rightHand, setRightHand] = useState(true);
 
 useEffect(() => {
     const timer = setInterval(() => {
@@ -30,32 +27,16 @@ useEffect(() => {
            
             }
 
-            
-            
             setInitialize(false);
-           
-    
-       
+
      };
-    
-    
 
-
-
-   
-
-
-    
-     
     }, 100);
     // clearing interval
       return () => clearInterval(timer);
     });
 
 
-
-
-   
     return(
       <div id="returnMenuDiv">
         <div>
@@ -82,15 +63,8 @@ useEffect(() => {
                     </ul>
 
                     </div>
-           
-
            </div>
             </div></div>
-
-            
-              
-
-
-       
+ 
     );
 };

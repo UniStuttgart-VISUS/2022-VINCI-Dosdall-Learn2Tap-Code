@@ -5,16 +5,11 @@ import { idContext } from "../../idContext";
 import Cookies from 'js-cookie';
 import { sendUserTracking } from '../functions/functions';
 
-
-
 export const Register = props => {
   const {value,setValue} =  useContext(idContext);
-
- 
   const[name, setName] = useState("");
   const[hand, setHand] = useState("right");
- 
-  
+   
   const addUser = () =>{
     
     Axios.get(`http://localhost:3001/createUser/${name}/${hand}`,).then((response)=>{
@@ -40,7 +35,7 @@ export const Register = props => {
                 onClick={() => {       
                   sendUserTracking(value, 'button click', 'menu button', 'Registration' );           
                   window.location.href=  '/Learn2Tap'; 
-                  // props.history.push("/");
+                 
                   }
                 }
                 >Menu</button>

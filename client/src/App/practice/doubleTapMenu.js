@@ -55,7 +55,6 @@ export const DoubleTapMenu = props => {
        Cookies.set("allCombinationArrCookie",allCombination);
   
       setSymbolArr(symbols);
-     // setCombinationArray(combination);
       Cookies.set("symbolArrCookie",symbols);
       Cookies.set("combinationArrCookie",combination);
 
@@ -91,12 +90,9 @@ export const DoubleTapMenu = props => {
       sendUserTracking(value, 'link click', 'double Tap', 'menu' );      
       
       Axios.get(`http://localhost:3001/getDoubleTabMenu`,).then((response)=>{
-      
-       
-        setLevelName(response.data[1]);
+          setLevelName(response.data[1]);
       })
-      
-  
+     
       Axios.get(`http://localhost:3001/getDoubleTapStar/${userID}`,).then((response)=>{
         var starsTotal =response.data[1];
         setPointsTotal(starsTotal);
@@ -150,8 +146,7 @@ export const DoubleTapMenu = props => {
                     sendUserTracking(value, 'Button click', 'Unit 1 Button', 'Double Tap Menu' ); 
                     getLevelValues([3,4,5], rightHand, 'Unit 1',levelName[0], 1, true );
                     Cookies.set('symbolIDsArray', [3,4,5])
-                   
-                  
+
                    }
                   }
             >
@@ -166,10 +161,7 @@ export const DoubleTapMenu = props => {
             {starsTotalArr[0]}/6 
            
             <img src={star} width="60px" height="100px" alt="star" />
-              
-             
-              
-           
+
             </div>
             </div>
           </button>
@@ -194,10 +186,7 @@ export const DoubleTapMenu = props => {
             {starsTotalArr[1]}/9
            
             <img src={star} width="60px" height="100px" alt="star" />
-              
-             
-              
-           
+
             </div>
             </div>
           </button>
@@ -206,7 +195,6 @@ export const DoubleTapMenu = props => {
             onClick={() => {
               sendUserTracking(value, 'Button click', 'Unit 3 Button', 'Double Tap Menu' ); 
               getLevelValues([10,11,13,14], rightHand, 'Unit 3',levelName[2],3 , false);
-          
               Cookies.set('symbolIDsArray', [10,11,13,14])
 
               }
@@ -223,10 +211,7 @@ export const DoubleTapMenu = props => {
             {starsTotalArr[2]}/9
            
             <img src={star} width="60px" height="100px" alt="star" />
-              
-             
-              
-           
+
             </div>
             </div>
           </button>
@@ -234,7 +219,6 @@ export const DoubleTapMenu = props => {
           <button class="normalButton" id="practicButtonMenuDT" type="button" 
             onClick={() => {
               sendUserTracking(value, 'Button click', 'Unit 4 Button', 'Double Tap Menu' ); 
-            
               getLevelValues([15,17,18,19,21], rightHand, 'Unit 4',levelName[3],4, false );
               Cookies.set('symbolIDsArray', [15,17,18,19,21])
               }
@@ -251,10 +235,7 @@ export const DoubleTapMenu = props => {
             {starsTotalArr[3]}/9
            
             <img src={star} width="60px" height="100px" alt="star" />
-              
-             
-              
-           
+    
             </div>
             </div>
           </button>
@@ -262,7 +243,6 @@ export const DoubleTapMenu = props => {
           <button class="normalButton" id="practicButtonMenuDT" type="button" 
             onClick={() => {
               sendUserTracking(value, 'Button click','Unit 5 Button', 'Double Tap Menu' ); 
-            
               getLevelValues([22,23], rightHand, 'Unit 5',levelName[4],5 , false);
               Cookies.set('symbolIDsArray',[22,23]);
               }
@@ -279,10 +259,7 @@ export const DoubleTapMenu = props => {
             {starsTotalArr[4]}/9
            
             <img src={star} width="60px" height="100px" alt="star" />
-              
-             
-              
-           
+
             </div>
             </div>
           </button>
@@ -290,7 +267,6 @@ export const DoubleTapMenu = props => {
           <button class="normalButton" id="practicButtonMenuDT" type="button" 
             onClick={() => {
               sendUserTracking(value, 'Button click',  'Unit 6 Button', 'Double Tap Menu' ); 
-              
               getLevelValues([26,27,31], rightHand,  'Unit 6',levelName[5],6 , false);
               Cookies.set('symbolIDsArray', [26,27,31]); 
               }
@@ -307,10 +283,7 @@ export const DoubleTapMenu = props => {
             {starsTotalArr[5]}/9
            
             <img src={star} width="60px" height="100px" alt="star" />
-              
-             
-              
-           
+
             </div>
             </div>
           </button>

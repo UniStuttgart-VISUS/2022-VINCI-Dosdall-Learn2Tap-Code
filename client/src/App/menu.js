@@ -121,7 +121,7 @@ import Axios from "axios";
          
           window.location.href=  '/Learn2Tap/UserAdministration';
         
-          //props.history.push("/UserAdministration");
+          
         }}
         >User Administration
         </button>
@@ -137,7 +137,7 @@ import Axios from "axios";
             onClick={() => {
                sendUserTracking(value, 'Button click', 'Hint Button', 'menu' ); 
                window.location.href= '/Learn2Tap/Hints';
-               //props.history.push("/Hints");
+              
               }
             } 
             >Hints
@@ -168,7 +168,7 @@ import Axios from "axios";
           sendUserTracking(value, 'button click', 'glossary button', 'menu' ); 
           window.location.href= '/Learn2Tap/Glossary';
           
-          //props.history.push("/Glossary");}
+          
         }}
         >Glossary
         </button>
@@ -189,7 +189,7 @@ import Axios from "axios";
           onClick={() => {
             sendUserTracking(value, 'button click', 'games button', 'menu' ); 
             window.location.href= '/Learn2Tap/GamesMenu';
-            // props.history.push("/games");
+            
           
           }
           }
@@ -200,7 +200,7 @@ import Axios from "axios";
             sendUserTracking(value, 'button click', 'statistic button', 'menu' ); 
             window.location.href= '/Learn2Tap/Statistics';
            
-           // props.history.push("/statistic");
+           
           }
           }
           >Statistics

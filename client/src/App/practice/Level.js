@@ -11,92 +11,85 @@ import Axios from "axios";
 
 export const AEIOULevel1 = props => {
   
-    const[initializeLevle, setInitializeLevel]= useState(true);
-    //positionBubble Y-Value
-    const[positionBubble, setPositionBubble] = useState("-10%");
-    const[positionBubbleInt, setPositionBubbleInt]= useState(10);
-    const[positionBubbleX, setPositionBubbleX] = useState("50%");
-    const[positionXstring, setPositionXSTring] = useState( "50%");
-   
-   
-    const[showHelp, setShowHelp] = useState(false);
-    const[showCombinationHelp, setShowCombinationHelp] = useState('');
-    const[showHelpCounter, setShowHelpCounter] = useState(0);
-    const {value,setValue} =  useContext(idContext);
-    const {symbolArr,setSymbolArr} = useContext(symbolsContext);
-  
-    const [allSymbolArr,setAllSymbolArr] = useState([]);
-    const [allCombinationArray, setAllCombinationArray] = useState([]);
-    const [symbolsToUse, setSymbolsToUse]= useState([]);
-    const [combinsationToUse, setCombinationToUse] = useState([]);
-    const{modus, setModus} = useContext(modusContext);
-    const{unitName, setUnitName} = useContext(unitNameContext);
-const[showPause, setShowPause] =useState(false);
-
-    const[letterBubble, setLetterBubble]= useState(symbolArr[0]);
+  const[initializeLevle, setInitializeLevel]= useState(true);
+  //positionBubble Y-Value
+  const[positionBubble, setPositionBubble] = useState("-10%");
+  const[positionBubbleInt, setPositionBubbleInt]= useState(10);
+  const[positionBubbleX, setPositionBubbleX] = useState("50%");
+  const[positionXstring, setPositionXSTring] = useState( "50%");
  
-    var colorBubble =['lime', 'fuchsia', 'aqua', 'yellow', 'orange'] ;
-    const[color, setColor] = useState("antiquewhite");
-    //Contains the order in which letters are shown.
-    const [orderLetter, setOrderLetter] = useState([]);
-    
-    const[letterCounter, setLetterCounter] = useState(0);
-    const[arrayTimesLetterAp, setArrayTimesLetterAp]= useState([]);
-    const[arrayTimesLetterHit, setArrayTimesLetterHit] = useState([]);
-    const[arrWrongLetterHit, setArrWrongLetterHit] = useState([]);
-    
-    const[arrWrongLetterHitAll, setArrWrongLetterHitAll] = useState([]);
-    const[arrayTimesLetterApAll, setArrayTimesLetterApAll]= useState([]);
-    const[arrayTimesLetterHitAll, setArrayTimesLetterHitAll] = useState([]);
+  const[showHelp, setShowHelp] = useState(false);
+  const[showCombinationHelp, setShowCombinationHelp] = useState('');
+  const[showHelpCounter, setShowHelpCounter] = useState(0);
+  const {value,setValue} =  useContext(idContext);
+  const {symbolArr,setSymbolArr} = useContext(symbolsContext);
   
-    const buttonResume = useRef()
-    const[statisticArr, setStatisticArr] = useState([]);
+  const [allSymbolArr,setAllSymbolArr] = useState([]);
+  const [allCombinationArray, setAllCombinationArray] = useState([]);
+  const [symbolsToUse, setSymbolsToUse]= useState([]);
+  const [combinsationToUse, setCombinationToUse] = useState([]);
+  const{modus, setModus} = useContext(modusContext);
+  const{unitName, setUnitName} = useContext(unitNameContext);
+  const[showPause, setShowPause] =useState(false);
+  const[letterBubble, setLetterBubble]= useState(symbolArr[0]);
+ 
+  var colorBubble =['lime', 'fuchsia', 'aqua', 'yellow', 'orange'] ;
+  const[color, setColor] = useState("antiquewhite");
+  //Contains the order in which letters are shown.
+  const [orderLetter, setOrderLetter] = useState([]);
+  const[letterCounter, setLetterCounter] = useState(0);
+  const[arrayTimesLetterAp, setArrayTimesLetterAp]= useState([]);
+  const[arrayTimesLetterHit, setArrayTimesLetterHit] = useState([]);
+  const[arrWrongLetterHit, setArrWrongLetterHit] = useState([]);
+    
+  const[arrWrongLetterHitAll, setArrWrongLetterHitAll] = useState([]);
+  const[arrayTimesLetterApAll, setArrayTimesLetterApAll]= useState([]);
+  const[arrayTimesLetterHitAll, setArrayTimesLetterHitAll] = useState([]);
+  
+  const buttonResume = useRef()
+  const[statisticArr, setStatisticArr] = useState([]);
 
-    const[intervallCounter, setIntervallCounter] = useState(0);
-    const[intervallCountdownCounter, setIntervallCountdownCounter] = useState(0);
-    const[speed, setSpeed] = useState(0.5)
-    const[unitID, setUnitID] = useState(0);
-    const[endUrl, setEndUrl] = useState('');
-      const[showenKeys, setShowenKey] = useState([]);
-      const[allPressedKeys, setALlPressedKeys] = useState([]);
-      const[arrayLettersInBuble, setArrayLetterInBubble] = useState([]);
-      const[startTS, setStartTS]= useState(0);
-      const[typingsSpeedArr, setTypingSpeedArr] = useState([]);
-    
-  
-    
+  const[intervallCounter, setIntervallCounter] = useState(0);
+  const[intervallCountdownCounter, setIntervallCountdownCounter] = useState(0);
+  const[speed, setSpeed] = useState(0.5)
+  const[unitID, setUnitID] = useState(0);
+  const[endUrl, setEndUrl] = useState('');
+  const[showenKeys, setShowenKey] = useState([]);
+  const[allPressedKeys, setALlPressedKeys] = useState([]);
+  const[arrayLettersInBuble, setArrayLetterInBubble] = useState([]);
+  const[startTS, setStartTS]= useState(0);
+  const[typingsSpeedArr, setTypingSpeedArr] = useState([]);
 
     //Possible valid key entries.
-    const keyConst = useKeyPress();
-    
+  const keyConst = useKeyPress();
     
     //show dialog at the end
-    const[dialog, setDialog]= useState(false);
-    const[dialog2, setDialog2]= useState(false);
-    const[pauseDialog, setPauseDialog] = useState(false);
-    const[statiscticIsCalculated, setStatiscticIsCalculated] = useState(false);
+  const[dialog, setDialog]= useState(false);
+  const[dialog2, setDialog2]= useState(false);
+  const[pauseDialog, setPauseDialog] = useState(false);
+  const[statiscticIsCalculated, setStatiscticIsCalculated] = useState(false);
 
-    const[showBubble, setShowBubble] = useState(true);
-    const[fallingBubble, setFallingBubble] = useState(false);
-    const[countdown, setCountDown] = useState(true);
-    const[countDownNum, setCountDownNum] = useState(3);
+  const[showBubble, setShowBubble] = useState(true);
+  const[fallingBubble, setFallingBubble] = useState(false);
+  const[countdown, setCountDown] = useState(true);
+  const[countDownNum, setCountDownNum] = useState(3);
     // States: Countdown - Play - Pause 
-    const[state, setState] = useState("countdown");    
-    const[intPercentProgressbar,setIntPercentProgressbar] = useState(4);
-    const[percentProgressbar, setPercent]= useState("4%")
-    //total number how many letter already have been showed
-    const[numLetterShow, setNumLetterShow]= useState(0);
-    //number how many letters have been shown in one round 
-    const[lettersShowenRound, setLettersShowenRound] = useState(1);
-    const[colStarOne, setColStarOne] = useState('grey');
-    const[colStarTwo, setColStarTwo] = useState('grey');
-    const[colStarThree, setColStarThree] = useState('grey');
-    const[allLetterInUse, setAllLetterInUse] = useState(true);
-    const[level,setLevel] = useState(Cookies.get('level'));
-    const[levelExist,setLevelExist] = useState(Cookies.get('levelExist'));
-    const[typingMode, setTypingMode] = useState('');
+  const[state, setState] = useState("countdown");    
+  const[intPercentProgressbar,setIntPercentProgressbar] = useState(4);
+  const[percentProgressbar, setPercent]= useState("4%")
+  //total number how many letter already have been showed
+   const[numLetterShow, setNumLetterShow]= useState(0);
+  //number how many letters have been shown in one round 
+  const[lettersShowenRound, setLettersShowenRound] = useState(1);
+  const[colStarOne, setColStarOne] = useState('grey');
+  const[colStarTwo, setColStarTwo] = useState('grey');
+  const[colStarThree, setColStarThree] = useState('grey');
+  const[allLetterInUse, setAllLetterInUse] = useState(true);
+  const[level,setLevel] = useState(Cookies.get('level'));
+  const[levelExist,setLevelExist] = useState(Cookies.get('levelExist'));
+  const[typingMode, setTypingMode] = useState('');
 
-        // key combis for shift and switch mode
+  // key combis for shift and switch mode
   const[keyCombi, setKeyCombi]= useState([]);
   const[allKeyCombi, setAllKeyCombi]= useState([]);
   const[currShiftKeys, setCurrShiftKeys] = useState([]);
@@ -104,12 +97,9 @@ const[showPause, setShowPause] =useState(false);
   const[allKeyPressed, setAllKeyPressed] = useState('');
   const[lastKey, setLastKey] =useState("");
 
- 
   const[readShiftKey, setReadShiftKey] =useState([false]);
 
-
-
-    function loadProgressbar(){
+  function loadProgressbar(){
 
       var next = intPercentProgressbar + 4;
       setPercent(next + "%");
@@ -117,12 +107,10 @@ const[showPause, setShowPause] =useState(false);
       document.getElementById("progressBar").style.width =  percentProgressbar;
       document.getElementById("percent").innerHTML =  percentProgressbar;
 
-    }
+   }
 
-   
-
-    //Calculates Statistic at the end of a level
-    function calculateStatistic(){  
+   //Calculates Statistic at the end of a level
+  function calculateStatistic(){  
   
       var statitisc = new Array((symbolArr.length)).fill(0);
       var total = 0;
@@ -134,7 +122,6 @@ const[showPause, setShowPause] =useState(false);
       }
         total = total + statitisc[i];
       }
-
       setStatisticArr(statitisc);
       total = total/statitisc.length
       var starsReceived = 0;
@@ -151,9 +138,7 @@ const[showPause, setShowPause] =useState(false);
       if(total >= 85){
         setColStarThree('gold');
         starsReceived = 3;
-      }
-
-  
+    }
          
       var statitiscAll = new Array((allSymbolArr.length)).fill(0);
   
@@ -166,40 +151,25 @@ const[showPause, setShowPause] =useState(false);
       }else{
         statitiscAll[i]= 0;
       }}
-      //sendUserTracking(value, 'Finished Game: '+ symbolArr + ' - '+ allSymbolArr , 'StatisticALL: ' + statitiscAll, 'Level' + unitName + 'Level ' + level); 
-      //sendUserTracking(value, 'Finished Game: '+ symbolArr , 'Statistic: ' + statitisc, 'Level' + unitName + 'Level ' + level); 
-     
-     
-     
-     
+           
       setStatisticArr(statitisc);
-     
-     
 
-     console.log('END', typingsSpeedArr);
-      
-     
       Axios.post('http://localhost:3001/userTracking',
-
       {
-      
       id: value,
       event: 'Finished Level: '+ symbolArr ,
       eventName:  'Reward: ' + starsReceived, 
       location: 'Level' + unitName + 'Level ' + level
-
       }).then((response)=>{
+          Axios.post('http://localhost:3001/userTracking',
+        {
+        
+        id: value,
+        event: 'Finished Level: '+ symbolArr ,
+        eventName: 'Statistic: ' + statitisc,
+        location: 'Level' + unitName + 'Level ' + level
 
-      Axios.post('http://localhost:3001/userTracking',
-
-      {
-      
-      id: value,
-      event: 'Finished Level: '+ symbolArr ,
-      eventName: 'Statistic: ' + statitisc,
-      location: 'Level' + unitName + 'Level ' + level
-
-      }).then((response)=>{
+       }).then((response)=>{
 
       Axios.post('http://localhost:3001/userTracking',
 
@@ -281,10 +251,8 @@ const[showPause, setShowPause] =useState(false);
   
         var res = readShiftKey;
         var currSingleKeys = currShiftKeys;
-        console.log('Test key', keyPressed , res, currSingleKeys , 'Index', currSingleKeys.indexOf(keyPressed), symbolsToUse[letterCounter]);
        
         if(currSingleKeys.indexOf(keyPressed) != -1){
-        // sendUserTracking(value, 'correct tap: ' + keyPressed , + symbolsToUse[letterCounter] + ' - ' +  currSingleKeys, 'Level' + unitName + 'Level ' + level); 
          
           var currIndex = parseInt(currSingleKeys.indexOf(keyPressed));
           res[currIndex ] = true;
@@ -299,7 +267,6 @@ const[showPause, setShowPause] =useState(false);
           setReadShiftKey(res);
           
         }else{
-        //  sendUserTracking(value, 'wrong tap: ' + keyPressed , 'actual tap ' + symbolsToUse[letterCounter] + ' - ' +  currSingleKeys, 'Level'+ unitName + 'Level ' + level ); 
             
           for(var i = 0; i< res.length; i++){
             res[i] = false;
@@ -313,16 +280,12 @@ const[showPause, setShowPause] =useState(false);
                
           setReadShiftKey(res);
         }
-  
-  
-  
-  
+
       }
     
 
     function newBubble(hit){
-      
-        
+              
         setShowHelp(false);
         setColor('lime');
         setShowHelpCounter(0);
@@ -341,37 +304,24 @@ const[showPause, setShowPause] =useState(false);
         
           }
          
-       
-        }
+          }
         //alls Symbols
         if(allSymbolArr.includes(symbolsToUse[letterCounter])){
           var indexOfLetterAll = allSymbolArr.indexOf(symbolsToUse[letterCounter]);
-          
           var arrayAppearAll = arrayTimesLetterApAll;
-       
           arrayAppearAll[indexOfLetterAll] = arrayAppearAll[indexOfLetterAll] + 1;
-        
           setArrayTimesLetterApAll(arrayAppearAll);
-         
-
+       
           if(hit){  
             var indexOfLetterAllHit = allSymbolArr.indexOf(symbolsToUse[letterCounter]);
-            
             var arrayHitAll = arrayTimesLetterHitAll;
-          
             arrayHitAll[indexOfLetterAllHit] = arrayHitAll[indexOfLetterAllHit] + 1;
-            
             setArrayTimesLetterHitAll(arrayHitAll);
-          
           }
-          
         }
         
-
-       var currLetterCounter = orderLetter[lettersShowenRound];
+        var currLetterCounter = orderLetter[lettersShowenRound];
         setLetterCounter(orderLetter[lettersShowenRound]);
-        console.log('Shift create order',currLetterCounter);
-      
         setLettersShowenRound(lettersShowenRound + 1)
         setPositionBubbleInt(0);
         
@@ -379,28 +329,21 @@ const[showPause, setShowPause] =useState(false);
         if(hit){
           loadProgressbar();
           setNumLetterShow(numLetterShow + 1);
-              
       }
 
-     
-    
       var positionX = Math.floor(Math.random()* (85 - 10) + 10) ;
-    
       var newPositionXstring = positionX + "%";
       setPositionXSTring(newPositionXstring);
         
       if(lettersShowenRound >(orderLetter.length)-2){
-
         let nextOrder;
         if(numLetterShow > (symbolArr.length*2) ){
-     
           nextOrder = allLetterCal();
         }else{
-        
-         nextOrder = createRandomOrder(createOrderLetter());
+          nextOrder = createRandomOrder(createOrderLetter());
         }
      
-        currLetterCounter = orderLetter[0];
+          currLetterCounter = orderLetter[0];
           setOrderLetter(nextOrder);
           setLettersShowenRound(0);
           setLetterCounter(orderLetter[0]);
@@ -412,7 +355,7 @@ const[showPause, setShowPause] =useState(false);
        
             setSymbolsToUse(allSymbolArr);
             setCombinationToUse(allCombinationArray);
-           newOrderLetter = allLetterCal();
+            newOrderLetter = allLetterCal();
             setOrderLetter(newOrderLetter);
             setAllLetterInUse(false);
             setLetterCounter(newOrderLetter[lettersShowenRound]);
@@ -422,49 +365,34 @@ const[showPause, setShowPause] =useState(false);
          
           setSymbolsToUse(allSymbolArr);
           setCombinationToUse(allCombinationArray);
-     
-
           newOrderLetter = allLetterCal();
           setOrderLetter(newOrderLetter);
           setLetterCounter(newOrderLetter[lettersShowenRound]);
           currLetterCounter =newOrderLetter[lettersShowenRound];
-
           setAllLetterInUse(false);
         }else if(level == 3 && allLetterInUse){
           
           setSymbolsToUse(allSymbolArr);
           setCombinationToUse(allCombinationArray);
-       
           newOrderLetter = allLetterCal();
           setOrderLetter(newOrderLetter);
           setLetterCounter(newOrderLetter[lettersShowenRound]);
           currLetterCounter =newOrderLetter[lettersShowenRound];
-
           setAllLetterInUse(false);
         }
 
         if((typingMode !== 'singleTap') && (lettersShowenRound >(orderLetter.length)-1) === false){
 
           if(symbolArr.length< newOrderLetter.length){
-  
-          
-              nextShiftKeyCombi(allKeyCombi,currLetterCounter);
-          
-          }else{
-           
-           
-              nextShiftKeyCombi(keyCombi,currLetterCounter);
-            
-          
-        }}
+            nextShiftKeyCombi(allKeyCombi,currLetterCounter);
+         }else{
+            nextShiftKeyCombi(keyCombi,currLetterCounter);
+         }}
 
         var keysShowen = showenKeys;
         keysShowen.push(symbolsToUse[currLetterCounter]);
         setShowenKey(keysShowen);
 
-      
-      
-      
         if(numLetterShow % symbolArr.length == 0 && numLetterShow !== 0){
           setSpeed(speed + 0.1);
         }
@@ -473,7 +401,6 @@ const[showPause, setShowPause] =useState(false);
         var neededTime = (intervallCounter- startTS) / 10;
         currArrTS.push(neededTime);
         setTypingSpeedArr(currArrTS);
-
         setStartTS(intervallCounter);
       
       }
@@ -483,14 +410,13 @@ const[showPause, setShowPause] =useState(false);
       for(var i = 0; i<symbolsToUse.length; i++){
         currOrder.push(i);
       }
- 
-      setOrderLetter(currOrder);
+       setOrderLetter(currOrder);
        return(currOrder);
     }
 
+
      function createRandomOrder(arrayNums) {
-    
-      var array = arrayNums;//createOrderLetter();
+      var array = arrayNums;
       var val, indexCur = array.length;
       var counter = array.length -1;
   
@@ -514,12 +440,9 @@ const[showPause, setShowPause] =useState(false);
     var numLetterToShow = symbolArr.length +   parseInt(level) ;
     var arrayNum = [];
     var startPoint = currAllSymbolArrLength - currSymbolArrLeng;
-   
     for(var i = startPoint; i< allSymbolArr.length; i++ ){
-     
       arrayNum.push(i);
     }
-  
     var diff = numLetterToShow - arrayNum.length 
     var min = 0;
     if(level == 1){
@@ -531,7 +454,7 @@ const[showPause, setShowPause] =useState(false);
     var max =  currAllSymbolArrLength-1;
    
     for(var i = 0; i< diff; i ++){
-      
+  
       var randomNum = Math.floor(Math.random() * (max - min + 1) ) + min;
       
       arrayNum.push(randomNum);
@@ -695,8 +618,7 @@ const[showPause, setShowPause] =useState(false);
         
  
            if(hand == 'left'){
-             console.log('inside Hand');
-             rightHand = false;
+              rightHand = false;
            }
 
           setTypingMode(Cookies.get('typingMode'))
@@ -715,9 +637,7 @@ const[showPause, setShowPause] =useState(false);
          setArrayTimesLetterApAll(new Array((curLenght)).fill(0));
          setArrayTimesLetterHitAll(new Array((curLenght)).fill(0));
          setArrWrongLetterHitAll(new Array((curLenght)).fill(0));
-          console.log(currAllSymbols ,)
-
-         setArrayTimesLetterAp(new Array((currSymbolsToPrac)).fill(0));
+          setArrayTimesLetterAp(new Array((currSymbolsToPrac)).fill(0));
        setArrayTimesLetterHit(new Array((currSymbolsToPrac)).fill(0));
         setArrWrongLetterHit(new Array((currSymbolsToPrac)).fill(0));
           var createOrderToStart = [];
@@ -857,7 +777,7 @@ const[showPause, setShowPause] =useState(false);
         }else if(state === "play"){
           setShowPause(true);
           
-  	  console.log('xxx:',currShiftKeys);
+  	 
           
           setIntervallCounter(intervallCounter + 1);
         setLetterBubble(symbolsToUse[letterCounter]);

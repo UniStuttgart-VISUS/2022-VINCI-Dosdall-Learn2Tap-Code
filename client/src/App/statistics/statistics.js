@@ -42,15 +42,9 @@ export const Statistics = props => {
     const[showAlternativeShift, setShowAlternativeShift] = useState(false);
     const[showAlternativeSwitch, setShowAlternativeSwitch] = useState(false);
   
-  const[xSingle, setXSingle] = useState([]);
-  const[xShift, setXShift] = useState([]);
-  const[xSwitch, setXSwitch] = useState([]);
-
-
-
-  
-  
-  
+    const[xSingle, setXSingle] = useState([]);
+    const[xShift, setXShift] = useState([]);
+    const[xSwitch, setXSwitch] = useState([]);
   
     const handleChange=(e)=>{
         var selected =  e.target.value;
@@ -117,8 +111,7 @@ export const Statistics = props => {
 
         
     }
-        
-    
+ 
     }
      
     function createLables(currLables){
@@ -140,7 +133,6 @@ export const Statistics = props => {
                     newLables.push(lablesToChange[i]);
                 }
 
-
         }
 
         return([newLables, currUndertitle])
@@ -158,20 +150,12 @@ export const Statistics = props => {
         
             Axios.get(`http://localhost:3001/getAllStatisticSingle/${value}`,).then((response)=>{
                 setSingleTap(response.data[0]);
-              //  setSingleTapSymbols(response.data[1]);
                 setCurrStatistic(response.data[0]);
-                //setCurrLable(response.data[1]);
-        
-              
                 var resultLableST = createLables(response.data[1]);
                 setSingleTapSymbols(resultLableST[0]);
                 setXSingle(resultLableST[1]);
                 setCurrLable(resultLableST[0]);
                 setShowAlternativeSingle(true);
-                
-
-                
-                
                 setInitialize(false);
                 
                 });
@@ -182,18 +166,18 @@ export const Statistics = props => {
                                        
                     });
     
-          Axios.get(`http://localhost:3001/getAllStatisticTriple/${value}`,).then((response)=>{
-                setTripleTap(response.data[0]);
-                setTripleTapSymbols(response.data[1]);
-             });
+                Axios.get(`http://localhost:3001/getAllStatisticTriple/${value}`,).then((response)=>{
+                        setTripleTap(response.data[0]);
+                        setTripleTapSymbols(response.data[1]);
+                    });
 
              
-          Axios.get(`http://localhost:3001/getAllStatisticShift/${value}`,).then((response)=>{
-            var resultLableShift = createLables(response.data[1]);
-            setXShift(resultLableShift[1]);
-            setShiftTap(response.data[0]);
-            setShiftTapSymbols(resultLableShift[0]);
-         });
+                Axios.get(`http://localhost:3001/getAllStatisticShift/${value}`,).then((response)=>{
+                    var resultLableShift = createLables(response.data[1]);
+                    setXShift(resultLableShift[1]);
+                    setShiftTap(response.data[0]);
+                    setShiftTapSymbols(resultLableShift[0]);
+                });
 
          Axios.get(`http://localhost:3001/getAllStatisticSwitch/${value}`,).then((response)=>{
             var resultLableSwitch = createLables(response.data[1]);
@@ -225,19 +209,12 @@ export const Statistics = props => {
            console.log('TIME TO TAP', response.data[0]);
            
          });
-        
-        
-
-
 
         }else{
             setShowStatistic(true);
 
         }
 
-
-        
-         
         }, 100);
         // clearing interval
           return () => clearInterval(timer);
@@ -268,8 +245,7 @@ export const Statistics = props => {
                             <option>Switch</option>
                             <option>Time To Tap</option>
                             <option>Tap it 5-times </option>
-                           
-                              <option>Coding</option>
+                            <option>Coding</option>
                         </select> 
                     </div>
                 </div>
