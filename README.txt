@@ -2,7 +2,7 @@
 	(MySQL server must be installed on local computer.
 		https://www.simplilearn.com/tutorials/mysql-tutorial/mysql-workbench-installation)
 
-2. Execute the files from the database server to create the database.	
+2. Execute the files from the database folder to create the database.	
 
 3. folder server --> File Index --> adjust database access 
 
