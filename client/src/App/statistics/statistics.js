@@ -5,6 +5,7 @@ import { idContext } from "../../idContext";
 import Axios from "axios";
 import { sendUserTracking } from "../functions/functions";
 
+//Statistic part of application
 export const Statistics = (props) => {
 	const { value, setValue } = useContext(idContext);
 	//stores Statistic for different selection Options

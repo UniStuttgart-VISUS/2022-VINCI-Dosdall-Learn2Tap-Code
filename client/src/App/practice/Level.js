@@ -18,6 +18,7 @@ import {
 import Cookies from "js-cookie";
 import Axios from "axios";
 
+//Implementation of the levels which appears inside a learning Unit
 export const AEIOULevel1 = (props) => {
 	const [initializeLevle, setInitializeLevel] = useState(true);
 	//positionBubble Y-Value

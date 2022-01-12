@@ -15,8 +15,8 @@ import {
 	unitNameContext,
 } from "./idContext";
 import { Games } from "./App/games/games.js";
-import { StreakChallenge } from "./App/games/streakChallenge";
-import { RepeatFive } from "./App/games/repeatFive";
+import { TimeToTap } from "./App/games/timeToTap";
+import { TapItFiveTimes } from "./App/games/tapItFiveTimes";
 
 import { Coding } from "./App/games/coding";
 import { SingleTapMenu } from "./App/practice/singleTapMenu.js";
@@ -66,6 +66,7 @@ function Index() {
 		setValue(valIdCookie);
 	}
 
+	//enables routing
 	return (
 		<div className="Index">
 			<Switch>
@@ -126,12 +127,12 @@ function Index() {
 									<Route
 										exact
 										path="/Learn2Tap/TimeToTap"
-										component={StreakChallenge}
+										component={TimeToTap}
 									/>
 									<Route
 										exact
 										path="/Learn2Tap/TapIt5-Times"
-										component={RepeatFive}
+										component={TapItFiveTimes}
 									/>
 									<Route exact path="/Learn2Tap/Coding" component={Coding} />
 									<Route

@@ -8,6 +8,7 @@ import Axios from "axios";
 import Cookies from "js-cookie";
 import { idContext } from "../../idContext";
 
+//Implemantaion of the game 'coding'
 export const Coding = (props) => {
 	const [showSelection, setShowSelection] = useState(true);
 	const { value, setValue } = useContext(idContext);

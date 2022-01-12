@@ -18,6 +18,7 @@ import {
 import TutorielLetter from "../component/tutorielLetter";
 import Axios from "axios";
 
+//Implementation of practice part which appears inside a learning Unit
 export const AEIOUPractice = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const { symbolArr, setSymbolArr } = useContext(symbolsContext);

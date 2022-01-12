@@ -16,6 +16,7 @@ import {
 	unitNameContext,
 } from "../../idContext";
 
+//Menu view for Switch submenu
 export const SwitchMenu = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const { symbolArr, setSymbolArr } = useContext(symbolsContext);

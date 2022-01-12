@@ -13,6 +13,7 @@ import {
 	unitNameContext,
 } from "../../idContext";
 
+//Learning Unit menu view if learning unit contains 3 levels
 export const MenuLU3Level = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const { symbolArr, setSymbolArr } = useContext(symbolsContext);

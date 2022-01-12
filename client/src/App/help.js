@@ -30,6 +30,7 @@ export const Help = (props) => {
 		return () => clearInterval(timer);
 	});
 
+	//returns hint section of application
 	return (
 		<div id="returnMenuDiv">
 			<div>

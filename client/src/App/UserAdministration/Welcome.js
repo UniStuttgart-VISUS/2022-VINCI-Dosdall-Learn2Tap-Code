@@ -6,6 +6,7 @@ import { idContext } from "../../idContext";
 import Cookies from "js-cookie";
 import { sendUserTracking } from "../functions/functions";
 
+//User Administration part, with possiblility to select existing user or select to create new user
 export const Welcome = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const [askSpecificUser, setAskSpecificUser] = useState(false);

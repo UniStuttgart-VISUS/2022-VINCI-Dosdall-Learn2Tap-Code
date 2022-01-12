@@ -14,6 +14,7 @@ import {
 } from "../../idContext";
 import { symbol } from "d3";
 
+//Learning Unit menu view if learning unit contains 2 levels
 export const MenuLearningUnit = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const { symbolArr, setSymbolArr } = useContext(symbolsContext);

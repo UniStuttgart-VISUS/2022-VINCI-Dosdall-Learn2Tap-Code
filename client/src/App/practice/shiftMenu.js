@@ -16,6 +16,7 @@ import {
 	unitNameContext,
 } from "../../idContext";
 
+//Menu view for Shift submenu
 export const ShiftMenu = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const { symbolArr, setSymbolArr } = useContext(symbolsContext);

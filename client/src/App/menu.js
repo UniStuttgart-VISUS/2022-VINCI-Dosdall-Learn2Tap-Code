@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { sendUserTracking } from "./functions/functions";
 import Axios from "axios";
 
+//Main menu - start page
 export const Menu = (props) => {
 	var pageUrl = "http://localhost:3000";
 	const { value, setValue } = useContext(idContext);
@@ -100,6 +101,7 @@ export const Menu = (props) => {
 		xhttp.send();
 	}
 
+	//returns main menu view (Start page)
 	return (
 		<div id="returnMenuDiv">
 			{showMenu && (

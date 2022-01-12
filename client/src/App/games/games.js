@@ -6,6 +6,7 @@ import { idContext } from "../../idContext";
 
 import Cookies from "js-cookie";
 
+//Implemantaion of the game menu view
 export const Games = (props) => {
 	const { value, setValue } = useContext(idContext);
 

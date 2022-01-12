@@ -16,6 +16,7 @@ import {
 	unitNameContext,
 } from "../../idContext";
 
+//Menu view for Triple Tap submenu
 export const TripleTapMenu = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const { symbolArr, setSymbolArr } = useContext(symbolsContext);

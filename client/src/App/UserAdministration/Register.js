@@ -5,6 +5,7 @@ import { idContext } from "../../idContext";
 import Cookies from "js-cookie";
 import { sendUserTracking } from "../functions/functions";
 
+//View for creating a new user
 export const Register = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const [name, setName] = useState("");

@@ -8,7 +8,8 @@ import Axios from "axios";
 import Cookies from "js-cookie";
 import { idContext } from "../../idContext";
 
-export const RepeatFive = (props) => {
+//Implemantaion of the game 'Tap it 5-times'
+export const TapItFiveTimes = (props) => {
 	const { value, setValue } = useContext(idContext);
 	const [keyToHit, setKeyToHit] = useState("");
 	const [dialog, setDialog] = useState(false);

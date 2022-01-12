@@ -8,7 +8,8 @@ import Axios from "axios";
 import Cookies from "js-cookie";
 import { idContext } from "../../idContext";
 
-export const StreakChallenge = (props) => {
+////Implemantaion of the game 'Time to Tap'
+export const TimeToTap = (props) => {
 	const [showSelection, setShowSelection] = useState(true);
 	const { value, setValue } = useContext(idContext);
 	const [dialog, setDialog] = useState(false);

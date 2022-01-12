@@ -372,9 +372,8 @@ app.get("/getSingleTapStatistic/:value/:symbols", (req, res) => {
 
 			const keys = Object.keys(resultJson);
 
-			// print all keys
 			var statisticArr = [];
-			// [ 'java', 'javascript', 'nodejs', 'php' ]
+
 			for (var i = 0; i < symbols.length; i++) {
 				// iterate over object
 				keys.forEach((key, index) => {
@@ -487,7 +486,6 @@ app.post("/statisticSingleTap", (req, res) => {
 	var update = [];
 	var updateStars = [];
 
-	//for(var i = 0; i < letter.length; i++){
 	dbUser.query("SELECT * FROM singletab WHERE userID=?", id, (err, result) => {
 		if (err) {
 			console.log(err);
@@ -496,11 +494,6 @@ app.post("/statisticSingleTap", (req, res) => {
 
 			const keys = Object.keys(resultJson);
 
-			// print all keys
-
-			// [ 'java', 'javascript', 'nodejs', 'php' ]
-
-			// iterate over object
 			keys.forEach((key, index) => {
 				if (letter.indexOf(key) > -1) {
 					var currIndex = letter.indexOf(key);
@@ -641,7 +634,6 @@ app.post("/statisticSingleTapWReponse", (req, res) => {
 	var update = [];
 	var updateStars = [];
 
-	//for(var i = 0; i < letter.length; i++){
 	dbUser.query("SELECT * FROM singletab WHERE userID=?", id, (err, result) => {
 		if (err) {
 			console.log(err);
@@ -650,11 +642,6 @@ app.post("/statisticSingleTapWReponse", (req, res) => {
 
 			const keys = Object.keys(resultJson);
 
-			// print all keys
-
-			// [ 'java', 'javascript', 'nodejs', 'php' ]
-
-			// iterate over object
 			keys.forEach((key, index) => {
 				if (letter.indexOf(key) > -1) {
 					var currIndex = letter.indexOf(key);
@@ -798,7 +785,6 @@ app.get("/getAllStatisticSingle/:value", (req, res) => {
 			var statisticArr = [];
 			var keyArr = [];
 
-			// iterate over object
 			keys.forEach((key, index) => {
 				if (key !== "userID") {
 					keyArr.push(key);
@@ -849,14 +835,10 @@ app.get("/getDoubleTapStatistic/:value/:symbolIds", (req, res) => {
 			const resultJson = Object.values(JSON.parse(JSON.stringify(result)))[0];
 
 			const keys = Object.keys(resultJson);
-
-			// print all keys
 			var statisticArr = [];
 
 			for (var i = 0; i < symbols.length; i++) {
 				var currSymId = "sid_" + symbols[i];
-
-				// iterate over object
 
 				keys.forEach((key, index) => {
 					if (currSymId === key) {
@@ -885,7 +867,7 @@ app.get("/getDoubleTapStar/:userID", (req, res) => {
 				var starsTotal = 0;
 				var starsTotalArray = [0, 0, 0, 0, 0, 0];
 				const keys = Object.keys(resultJson);
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (key != "userID") {
 						starsTotal = starsTotal + resultJson[key];
@@ -925,7 +907,7 @@ app.get("/getDoubleTapStarsUnit/:value/:unitID", (req, res) => {
 
 				var starsTotalArray = [];
 				const keys = Object.keys(resultJson);
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (key.includes(unitId)) {
 						starsTotalArray.push(resultJson[key]);
@@ -1023,7 +1005,6 @@ app.post("/statisticDoubleTap", (req, res) => {
 	var update = [];
 	var updateStars = [];
 
-	//for(var i = 0; i < letter.length; i++){
 	dbUser.query("SELECT * FROM doubletap WHERE userID=?", id, (err, result) => {
 		if (err) {
 			console.log(err);
@@ -1162,7 +1143,6 @@ app.get("/getAllStatisticDouble/:value", (req, res) => {
 			var statisticArr = [];
 			var keyArr = [];
 
-			// iterate over object
 			for (var i = 0; i < resultJson.length; i++) {
 				if (symbolIdsDouble.indexOf(resultJson[i].id) !== -1) {
 					keyArr.push(resultJson[i].doubletap);
@@ -1182,7 +1162,6 @@ app.get("/getAllStatisticDouble/:value", (req, res) => {
 
 						const keysStat = Object.keys(resultJsonStat);
 
-						// iterate over object
 						keysStat.forEach((key, index) => {
 							if (key !== "userID") {
 								statisticArr.push(resultJsonStat[key]);
@@ -1233,7 +1212,7 @@ app.get("/getTripleTapStar/:userID", (req, res) => {
 				var starsTotal = 0;
 				var starsTotalArray = [0, 0, 0, 0];
 				const keys = Object.keys(resultJson);
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (key != "userID") {
 						starsTotal = starsTotal + resultJson[key];
@@ -1340,12 +1319,11 @@ app.get("/getTripleTapStatistic/:value/:symbolIds", (req, res) => {
 
 			const keys = Object.keys(resultJson);
 
-			// print all keys
 			var statisticArr = [];
 
 			for (var i = 0; i < symbols.length; i++) {
 				var currSymId = "sid_" + symbols[i];
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (currSymId === key) {
 						statisticArr.push(resultJson[key]);
@@ -1401,12 +1379,9 @@ app.post("/statisticTripleTap", (req, res) => {
 			console.log(err);
 		} else {
 			const resultJson = Object.values(JSON.parse(JSON.stringify(result)))[0];
-
 			const keys = Object.keys(resultJson);
-
 			var valSids = [];
 
-			// iterate over object
 			keys.forEach((key, index) => {
 				if (key !== "userID") {
 					valSids.push(resultJson[key]);
@@ -1522,11 +1497,9 @@ app.get("/getAllStatisticTriple/:value", (req, res) => {
 
 			const keys = Object.keys(resultJson);
 
-			// print all keys
 			var statisticArr = [];
 			var keyArr = [];
 
-			// iterate over object
 			for (var i = 0; i < resultJson.length; i++) {
 				if (symbolIdsTriple.indexOf(resultJson[i].id) !== -1) {
 					keyArr.push(resultJson[i].triple);
@@ -1545,10 +1518,6 @@ app.get("/getAllStatisticTriple/:value", (req, res) => {
 						)[0];
 
 						const keysStat = Object.keys(resultJsonStat);
-
-						// print all keys
-
-						// iterate over object
 						keysStat.forEach((key, index) => {
 							if (key !== "userID") {
 								statisticArr.push(resultJsonStat[key]);
@@ -2124,7 +2093,7 @@ app.get("/getSwitchStatistic/:value/:symbolIds", (req, res) => {
 
 			for (var i = 0; i < symbols.length; i++) {
 				var currSymId = "sid_" + symbols[i];
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (currSymId === key) {
 						statisticArr.push(resultJson[key]);
@@ -2152,7 +2121,7 @@ app.get("/getSwitchStarsUnit/:value/:unitID", (req, res) => {
 
 				var starsTotalArray = [];
 				const keys = Object.keys(resultJson);
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (key.includes(unitId)) {
 						starsTotalArray.push(resultJson[key]);
@@ -2175,7 +2144,6 @@ app.post("/statisticSwitch", (req, res) => {
 	var update = [];
 	var updateStars = [];
 
-	//for(var i = 0; i < letter.length; i++){
 	dbUser.query("SELECT * FROM switch WHERE userID=?", id, (err, result) => {
 		if (err) {
 			console.log(err);
@@ -2185,8 +2153,7 @@ app.post("/statisticSwitch", (req, res) => {
 			const keys = Object.keys(resultJson);
 
 			var valSids = [];
-			// print all keys
-			// iterate over object
+
 			keys.forEach((key, index) => {
 				if (key !== "userID") {
 					valSids.push(resultJson[key]);
@@ -2316,7 +2283,6 @@ app.get("/getAllStatisticSwitch/:value", (req, res) => {
 
 			const keys = Object.keys(resultJson);
 
-			// print all keys
 			var statisticArr = [];
 			var keyArr = [];
 
@@ -2339,8 +2305,6 @@ app.get("/getAllStatisticSwitch/:value", (req, res) => {
 					)[0];
 
 					const keysStat = Object.keys(resultJsonStat);
-
-					// print all keys
 
 					// iterate over object
 					keysStat.forEach((key, index) => {
@@ -2592,7 +2556,7 @@ app.get("/getFiveTimeRecords/:value", (req, res) => {
 
 				var accuracy = [];
 				var streak = [];
-				// iterate over object
+
 				keys.forEach((key, index) => {
 					if (key === "recordeScore") {
 						streak.push(resultJson[key]);
