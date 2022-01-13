@@ -18,7 +18,7 @@ class Barchart extends React.Component {
 		let svg = d3
 			.select("#chart")
 			.style("margin-top", "10")
-			.style("background-color", "cadetblue") //rgb(255,255,223)')  	// 'cadetblue')
+			.style("background-color", "#F5F9DC") //rgb(255,255,223)')  	// 'cadetblue')
 			.attr("width", this.props.svgWidth)
 			.attr("height", this.props.svgHeight + 40);
 
@@ -28,16 +28,13 @@ class Barchart extends React.Component {
 			.enter()
 			.append("text")
 			.text((d) => d)
-			.attr("y", (d, i) => this.props.svgHeight) //+ (i*26) )
+			.attr("y", (d, i) => this.props.svgHeight)
 			.attr(
 				"x",
 				(d, i) =>
 					this.props.barPadding + 35 + i * (this.props.barPadding + barWidth)
 			)
 			.style("text-anchor", "middle");
-		// .attr("dy", "-0.6em")
-		// .attr("dx", "-8em")
-		//  .attr('transform', 'rotate(-35)');
 
 		let yScale = d3
 			.scaleLinear()
@@ -56,7 +53,7 @@ class Barchart extends React.Component {
 		var y_axis = d3.axisLeft().scale(yscaleAxis);
 
 		var xAxisTranslate = this.props.svgHeight - 15;
-		var yAxisTranslate = this.props.svgHeight; //d3.max(this.props.dataset)) - 15;
+		var yAxisTranslate = this.props.svgHeight;
 		svg
 			.append("g")
 			.attr("transform", "translate(25, -15)") //"+ yAxisTranslate +")")

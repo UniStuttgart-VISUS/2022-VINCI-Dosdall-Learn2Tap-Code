@@ -39,7 +39,7 @@ export const MenuLU3Level = (props) => {
 	setModus(Cookies.get("modusCookie"));
 	setUnitName(Cookies.get("unitCookie"));
 
-	var colArr = ["lime", "fuchsia", "aqua", "yellow", "orange"];
+	var colArr = ["#3772A9", "#3772A9", "#3772A9", "#3772A9", "#3772A9"];
 
 	useEffect(() => {
 		const timer = setInterval(() => {

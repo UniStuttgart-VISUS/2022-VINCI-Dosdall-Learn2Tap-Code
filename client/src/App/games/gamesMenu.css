@@ -162,7 +162,7 @@ h4 {
 	background-color: antiquewhite;
 }
 #gameButtonGamesMenu {
-	background-color: rgb(224, 221, 26);
+	background-color: #ac6615;
 	width: 450px;
 	height: 110px;
 }
@@ -173,7 +173,7 @@ h4 {
 	background-color: antiquewhite;
 }
 #dialogButtonGames {
-	background-color: rgb(137, 150, 151);
+	background-color: #6c797a;
 	height: 100px;
 	width: 250px;
 }

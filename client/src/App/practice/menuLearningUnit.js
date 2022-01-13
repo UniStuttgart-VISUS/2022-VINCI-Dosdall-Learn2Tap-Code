@@ -34,8 +34,7 @@ export const MenuLearningUnit = (props) => {
 	const [alternativeXAxis, setAlternativeXAxis] = useState([]);
 	const [showAlternative, setShowAlternative] = useState(false);
 
-	var colArr = ["lime", "fuchsia", "aqua", "yellow", "orange"];
-
+	var colArr = ["#3772A9", "#3772A9", "#3772A9", "#3772A9", "#3772A9"];
 	useEffect(() => {
 		const timer = setInterval(() => {
 			if (count === 0) {

@@ -42,7 +42,7 @@ export const AEIOULevel1 = (props) => {
 	const [showPause, setShowPause] = useState(false);
 	const [letterBubble, setLetterBubble] = useState(symbolArr[0]);
 
-	var colorBubble = ["lime", "fuchsia", "aqua", "yellow", "orange"];
+	var colorBubble = ["#3772A9", "#3772A9", "#3772A9", "#3772A9", "#3772A9"];
 	const [color, setColor] = useState("antiquewhite");
 	//Contains the order in which letters are shown.
 	const [orderLetter, setOrderLetter] = useState([]);

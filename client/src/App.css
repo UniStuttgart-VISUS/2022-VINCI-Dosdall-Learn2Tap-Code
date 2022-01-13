@@ -11,6 +11,27 @@
 	align-items: center;
 	justify-content: center;
 }
+employees,
+.user {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: center;
+}
+.userListResult {
+	align-items: center;
+	width: 800px;
+	height: auto;
+	border: 1px solid black;
+	margin: 10px;
+	display: flex;
+	padding: 10px;
+	font-family: "Courier New", Courier, monospace;
+}
+
+.employeListResult h3 {
+	margin: 20px;
+}
 
 input,
 select {
@@ -56,7 +77,7 @@ h5 {
 	width: 35%;
 }
 #registerButton {
-	background-color: rgb(124, 204, 113);
+	background-color: #097b0b;
 	height: 80px;
 }
 #selectUserButton {

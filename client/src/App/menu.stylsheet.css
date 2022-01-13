@@ -30,7 +30,7 @@ h2 {
 	text-align: center;
 	font-size: 22px;
 	padding: 20px;
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 
 	cursor: pointer;
 }
@@ -51,7 +51,7 @@ h2 {
 	font-size: 22px;
 	padding: 20px;
 
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	cursor: pointer;
 }
 .buttonShiftMenu {
@@ -151,26 +151,26 @@ button:hover {
 	color: black;
 }
 #glossaryButton {
-	background-color: #6faee2;
+	background-color: #3c61f6; /*#6faee2;*/
 }
 #statisticButton {
 	background-color: rgb(139, 14, 83);
 }
 #gameButton {
-	background-color: rgb(224, 221, 26);
+	background-color: #ac6615;
 }
 #hintButton {
-	background-color: rgba(16, 195, 250, 0.205);
+	background-color: #3bb8f7;
 	width: 150px;
 	color: black;
 }
 #userAdministrationButton {
 	width: 250px;
-	background-color: rgba(16, 195, 250, 0.205);
+	background-color: #3bb8f7;
 	color: black;
 }
 #returnMenuDiv {
-	background-color: #fbefef; /* rgb(206, 197, 197);*/
+	background-color: rgb(206, 197, 197); /* #fbefef; /* rgb(206, 197, 197);*/
 	height: 100vh;
 	width: 100vw;
 	overflow-x: hidden;
@@ -182,49 +182,49 @@ button:hover {
 
 #glossaryButtonPractice {
 	width: 250px;
-	background-color: #6faee2;
+	background-color: #3c61f6;
 }
 
 #practicButtonMenu {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 90px;
 	width: 400px;
 	font-size: 18px;
 }
 
 #practicButtonMenuDT {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 90px;
 	width: 350px;
 	font-size: 18px;
 }
 #practicButtonMenuTT {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 90px;
 	width: 350px;
 	font-size: 18px;
 }
 #practicButtonMenuSwitch {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 90px;
 	width: 350px;
 	font-size: 16px;
 }
 
 #practicButtonMenuShift {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 120px;
 	width: 600px;
 	font-size: 16px;
 }
 #practicButtonMenuFF {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 90px;
 	width: 350px;
 	font-size: 16px;
 }
 #practicButtonMenuFFX {
-	background-color: rgb(20, 214, 150);
+	background-color: #0f8a11;
 	height: 70px;
 	width: 250px;
 	font-size: 16px;
@@ -236,7 +236,7 @@ button:hover {
 	font-size: 16px;
 }
 #menuButtonSingleTap {
-	background-color: rgba(16, 195, 250, 0.205);
+	background-color: #3bb8f7;
 	color: black;
 	height: 80px;
 	width: 200px;
@@ -247,7 +247,7 @@ button:hover {
 	height: 80px;
 	width: 200px;
 	font-size: 18px;
-	background-color: #6faee2;
+	background-color: #3bb8f7;
 }
 p {
 	font-size: 22px;
@@ -325,7 +325,7 @@ p {
 		height: 70px;
 		width: 120px;
 		font-size: 16px;
-		background-color: #6faee2;
+		background-color: #3c61f6;
 	}
 	#spaceDivHeader {
 		display: none;

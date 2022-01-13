@@ -75,7 +75,7 @@ h4 {
 	width: 300px;
 	height: 70px;
 	font-size: 16px;
-	background-color: rgb(148, 207, 81);
+	background-color: #ac6615;
 }
 #practiceDiv {
 	background-color: antiquewhite;
@@ -85,7 +85,7 @@ h4 {
 	width: 300px;
 	height: 70px;
 	font-size: 16px;
-	background-color: rgb(8, 143, 143);
+	background-color: #3c7f10;
 }
 #levelButton {
 	width: 300px;
@@ -115,7 +115,7 @@ h4 {
 		height: 70px;
 		width: 120px;
 		font-size: 16px;
-		background-color: #6faee2;
+		background-color: #3bb8f7;
 	}
 	#spaceDivHeader {
 		display: none;
