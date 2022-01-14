@@ -294,7 +294,7 @@ export const Statistics = (props) => {
 							svgHeight={280}
 							barPadding={10}
 							lableX={currLable}
-							color={"blue"}
+							color={"#3772A9"}
 							yLength={yAxisLength}
 						></CallBarchart>
 

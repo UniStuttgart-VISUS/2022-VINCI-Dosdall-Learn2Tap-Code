@@ -77,10 +77,7 @@ class Barchart extends React.Component {
 			.attr("y", (d) => this.props.svgHeight - 16 - yScale(d))
 			.attr("width", barWidth - this.props.barPadding)
 			.attr("height", (d) => yScale(d))
-			.attr("fill", function () {
-				timeI++;
-				return colorArr[timeI];
-			});
+			.attr("fill", "#3772A9");
 	}
 	render() {
 		return (
